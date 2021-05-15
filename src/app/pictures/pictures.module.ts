@@ -4,6 +4,8 @@ import { AgregarComponent } from './pages/agregar/agregar.component';
 import { PictureComponent } from './pages/picture/picture.component';
 import { ListadoComponent } from './pages/listado/listado.component';
 import { PictureDetailComponent } from './pages/picture-detail/picture-detail.component';
+import { PicturesRoutingModule } from './pictures-routing.module';
+import { MainPicturesComponent } from './pages/main-pictures/main-pictures.component';
 
 
 
@@ -12,10 +14,12 @@ import { PictureDetailComponent } from './pages/picture-detail/picture-detail.co
     AgregarComponent,
     PictureComponent,
     ListadoComponent,
-    PictureDetailComponent
+    PictureDetailComponent,
+    MainPicturesComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    PicturesRoutingModule
   ]
 })
 export class PicturesModule { }
