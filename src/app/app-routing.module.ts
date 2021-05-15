@@ -18,7 +18,7 @@ const routes: Routes = [
   {
     path: 'users',
     loadChildren: () => import('./auth/auth.module')
-    .then( modulos => modulos.AuthModule)
+                          .then( modulos => modulos.AuthModule)
   },
   {
     path: '**',
