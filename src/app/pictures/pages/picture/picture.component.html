@@ -13,7 +13,6 @@
   <div fxLayout="row"
   fxLayout.xs="column"
   fxLayoutGap="30px">
-{{picture | json}}
   <div fxFlex="50">
       <h1>{{ picture.nombre }} <small>- {{ picture.annio }} </small> </h1>
       <mat-divider></mat-divider>
@@ -34,8 +33,23 @@
       </mat-list>
 
       <br>
+      <div>
+        <button mat-button
+                color="info"
+                [routerLink]="['/pictures/editar',picture._id]">
+          Editar
+        </button>
+
+        <button mat-button
+                color="warn"
+                [routerLink]="[]">
+          Comprar
+        </button>
+
+      </div>
       <button mat-button
               color="warn"
+              (click)="back()"
               >
           Regresar
       </button>

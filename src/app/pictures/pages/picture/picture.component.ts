@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
+import { Location } from '@angular/common'
+
 
 import { Picture } from '../../interfaces/pictures.interface';
 import { PicturesService } from '../../services/pictures.service';
@@ -19,7 +21,8 @@ export class PictureComponent implements OnInit {
 
   constructor(  private activatedRoute: ActivatedRoute,
                 private picturesService: PicturesService,
-                private router: Router) { }
+                private router: Router,
+                private location: Location) { }
 
   ngOnInit(): void {
 
@@ -28,7 +31,11 @@ export class PictureComponent implements OnInit {
       switchMap(({id}) => this.picturesService.getPicturePorId(id))
     )
     .subscribe(resp => this.picture = resp.picture)
+  }
+
+  back(): void {
+    this.location.back()
+  }
 
 
-}
 }
