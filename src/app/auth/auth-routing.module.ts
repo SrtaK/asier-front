@@ -22,7 +22,14 @@ const routes: Routes = [
         path: 'registro',
         component: RegistroComponent
       },
-      //Faltan rutas
+      {
+        path: 'editar/:id',
+        component: RegistroComponent
+      },
+      {
+        path: 'listado',
+        component: ListadoComponent
+      },
       {
         path: '**',
         component:HomeComponent

@@ -9,21 +9,25 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-  },
-  {
-    path: 'pictures',
-    loadChildren: () => import ('./pictures/pictures.module')
-                          .then( modulos => modulos.PicturesModule)
-  },
-  {
-    path: 'users',
-    loadChildren: () => import('./auth/auth.module')
-                          .then( modulos => modulos.AuthModule)
-  },
-  {
-    path: '**',
-    component: ErrorComponent
-  }
+    children: [
+      {
+        path: 'pictures',
+        loadChildren: () => import ('./pictures/pictures.module')
+                              .then( modulos => modulos.PicturesModule)
+      },
+      {
+        path: 'users',
+        loadChildren: () => import('./auth/auth.module')
+                              .then( modulos => modulos.AuthModule)
+      },
+
+    ]
+    },
+    {
+      path: '**',
+      component: ErrorComponent
+    }
+
 
 ]
 

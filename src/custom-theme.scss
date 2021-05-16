@@ -12,8 +12,8 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$asier-front-primary: mat-palette($mat-indigo);
-$asier-front-accent: mat-palette($mat-pink, A200, A100, A400);
+$asier-front-primary: mat-palette($mat-cyan, 900);
+$asier-front-accent: mat-palette($mat-gray, 50);
 
 // The warn palette is optional (defaults to red).
 $asier-front-warn: mat-palette($mat-red);
@@ -26,6 +26,7 @@ $asier-front-theme: mat-light-theme((
     accent: $asier-front-accent,
     warn: $asier-front-warn,
   )
+
 ));
 
 // Include theme styles for core and each component used in your app.

@@ -1,3 +1,95 @@
-<p>home works!</p>
+<mat-sidenav-container fullscreen>
 
-<router-outlet></router-outlet>
+  <!--nav desplegado completo-->
+  <mat-sidenav #sidenav mode="push">
+
+    <!--nav top desplegado morado-->
+    <mat-toolbar color="secondary">
+
+
+      <!--para poner cada icono en la izq y otro a la dcha-->
+      <span class="spacer"></span>
+
+      <button mat-icon-button
+              (click)="sidenav.toggle()">
+        <mat-icon>keyboard_arrow_left</mat-icon>
+      </button>
+
+    </mat-toolbar>
+
+    <!--listado de enlaces del nav-->
+    <mat-nav-list>
+
+      <a routerLink="" mat-list-item (click)="sidenav.toggle()">
+        <mat-icon mat-list-icon></mat-icon>
+        <span>Home</span>
+      </a>
+
+      <a routerLink="/pictures/listado/el-cuerpo-orografico" mat-list-item (click)="sidenav.toggle()">
+        <span>El cuerpo orográfico</span>
+      </a>
+
+      <a routerLink="/pictures/listado/www1" mat-list-item (click)="sidenav.toggle()">
+        <span>WW1</span>
+      </a>
+
+      <a routerLink="/pictures/listado/las-formas-del-desnudo" mat-list-item (click)="sidenav.toggle()">
+        <span>Las formas del desnudo</span>
+      </a>
+
+      <a routerLink="/pictures/listado/nosotros-los-pueblos" mat-list-item (click)="sidenav.toggle()">
+        <span>Nosotros los pueblos</span>
+      </a>
+
+      <a routerLink="" mat-list-item (click)="sidenav.toggle()">
+        <span>Sobre mí</span>
+      </a>
+
+      <a routerLink="" mat-list-item (click)="sidenav.toggle()">
+        <span>Contacto</span>
+      </a>
+
+    </mat-nav-list>
+
+  </mat-sidenav>
+
+  <!--nav top antes de desplegar (menu-logout negro)-->
+  <mat-toolbar>
+
+    <button mat-icon-button
+            (click)="sidenav.toggle()">
+      <mat-icon>fingerprint</mat-icon>
+    </button>
+
+    <!--para poner cada icono en la izq y otro a la dcha-->
+    <span class="spacer"></span>
+
+    <span>usuario</span>
+
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="User menu">
+      <mat-icon>accessibility_new</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>directions_run</mat-icon>
+        <span>Salir</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>mood</mat-icon>
+        <span>Mis datos</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>shopping_basket</mat-icon>
+        <span>Mic sompras</span>
+      </button>
+    </mat-menu>
+
+  </mat-toolbar>
+
+  <!--Aquí muestro las vistas de agregar, listado, busqueda-->
+  <div class="container">
+
+    <router-outlet></router-outlet>
+  </div>
+
+</mat-sidenav-container>
