@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { PicturesService } from '../../services/pictures.service';
+import { PicturesService, } from '../../services/pictures.service';
+import { Picture, PictureResp } from '../../interfaces/pictures.interface';
 
 @Component({
   selector: 'app-listado',
@@ -9,6 +10,8 @@ import { PicturesService } from '../../services/pictures.service';
 })
 export class ListadoComponent implements OnInit {
 
+  pictures: Picture[]= []
+
   //Inyecto el PictureService para poder utilizar sus métodos
   constructor( private picturesService: PicturesService) { }
 
@@ -16,6 +19,13 @@ export class ListadoComponent implements OnInit {
 
     //Llamo al método, para que funcione tengo que suscribirme porque devuelve un observable
     this.picturesService.getPictures()
-      .subscribe( resp => console.log(resp));
+      .subscribe( resp => this.pictures = resp.pictures) //los pictures que traigo en la respuesta ahora son mis pictures
+
+
+
+
+
   }
 }
+
+

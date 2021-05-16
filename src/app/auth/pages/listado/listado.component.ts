@@ -14,6 +14,7 @@ export class ListadoComponent implements OnInit {
   ngOnInit(): void {
 
   this.authService.getUsers()
+  //se romple porque me falta gestionar el auth
       .subscribe( resp => console.log(resp));
   }
 
