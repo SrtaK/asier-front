@@ -68,38 +68,64 @@ export class AgregarComponent implements OnInit {
   }
 
 
-  guardar(){
+  save(){
     //pequeña validación a ver si llega un picture
     if( this.picture.nombre.trim().length == 0){
       return
     }
+   //Crear nuevo
+    this.pictureService.agregarPicture(this.picture)
+      .subscribe( picture => {
+        this.router.navigate(['/pictures/editar', 2]);
+        this.mostrarSnackBAr('Obra guardada');
+        this.router.navigateByUrl(`/listado/${this.picture.serie}`)
 
-
-    if( this.picture._id ){ //si la obra tiene id es que estoy editando
-      //Actualizar
-      this.pictureService.actualizarPicture(this.picture)
-      .subscribe( resp => {
-        this.mostrarSnackBAr('Picture actualizado');
       })
-    }else{
-    //Crear nuevo
-      this.pictureService.agregarPicture(this.picture)
-        .subscribe( picture => {
-          this.router.navigate(['/pictures/editar', picture._id]);
-          this.mostrarSnackBAr('Heroe guardado');
-        })
 
+  }
 
+  actualizar(){
+    if( this.picture.nombre.trim().length == 0){
+      return
+    }
+
+    this.pictureService.actualizarPicture(this.picture)
+    .subscribe( resp => {
+      console.log('Actualizando', resp);
+      this.mostrarSnackBAr('Obra actualizada');
+      this.router.navigateByUrl(`/listado/${this.picture.serie}`)
+
+    })
   }
 
 
 
-}
 
-mostrarSnackBAr(mensaje: string){
-  this.snackBar.open(mensaje, 'ok!', {
-    duration: 2500
-  })
-}
+////
+// this.pictureService.agregarPicture(this.picture)
+// .subscribe(ok =>{
+//   //si es correcto navega
+//   if(ok){
+//     Swal.fire({
+//       icon: 'success',
+//       title: 'Ok!',
+//       text: 'Tus cambios se han guardado',
+//     })
+//     this.router.navigateByUrl('/home')
+//   }else{
+//     //sino es correcto manejo el error
+//     Swal.fire({
+//       icon: 'error',
+//       title: 'Oops...',
+//       text: 'Algo salió mal',
+//     })
+//   }
+// })
+// }
+  mostrarSnackBAr(mensaje: string){
+    this.snackBar.open(mensaje, 'ok!', {
+      duration: 2500
+    })
+  }
 
 }

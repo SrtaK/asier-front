@@ -94,12 +94,12 @@
 
 
 
-      <div>
+      <div >
         <button mat-raised-button
                 color="primary"
-                (click)="guardar()">
+                (click)="actualizar()">
           <mat-icon>edit</mat-icon>
-          {{(picture._id)? 'Actualizar' : 'Guardar'}}
+          Actualizar
         </button>
         <span class="spacer"></span>
 
@@ -109,6 +109,14 @@
                 color="warn">
           <mat-icon>remove</mat-icon>
           Borrar
+        </button>
+      </div>
+      <div>
+        <button mat-raised-button
+                color="primary"
+                (click)="save()">
+          <mat-icon>edit</mat-icon>
+          Guardar
         </button>
       </div>
 
