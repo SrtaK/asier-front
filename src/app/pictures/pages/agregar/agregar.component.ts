@@ -1,8 +1,9 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common'
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ActivatedRoute, Router } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
 
 import Swal from 'sweetalert2';
 
@@ -58,6 +59,12 @@ export class AgregarComponent implements OnInit {
                 private location: Location) { }
 
   ngOnInit(): void {
+
+    this.activatedRoute.params
+      .pipe(
+        switchMap(({id})=> this.pictureService.getPicturePorId(id))
+      )
+      .subscribe( res => this.picture = res.picture )
   }
 
 
@@ -67,26 +74,32 @@ export class AgregarComponent implements OnInit {
       return
     }
 
-    this.pictureService.agregarPicture(this.picture)
-      .subscribe(ok =>{
-        //si es correcto navega
-        if(ok){
-          Swal.fire({
-            icon: 'success',
-            title: 'Ok!',
-            text: 'Tus cambios se han guardado',
-          })
-          this.router.navigateByUrl('/home')
-        }else{
-          //sino es correcto manejo el error
-          Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Algo salió mal',
-          })
-        }
+
+    if( this.picture._id ){ //si la obra tiene id es que estoy editando
+      //Actualizar
+      this.pictureService.actualizarPicture(this.picture)
+      .subscribe( resp => {
+        this.mostrarSnackBAr('Picture actualizado');
       })
+    }else{
+    //Crear nuevo
+      this.pictureService.agregarPicture(this.picture)
+        .subscribe( picture => {
+          this.router.navigate(['/pictures/editar', picture._id]);
+          this.mostrarSnackBAr('Heroe guardado');
+        })
+
 
   }
+
+
+
+}
+
+mostrarSnackBAr(mensaje: string){
+  this.snackBar.open(mensaje, 'ok!', {
+    duration: 2500
+  })
+}
 
 }

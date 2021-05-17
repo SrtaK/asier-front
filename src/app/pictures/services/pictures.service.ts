@@ -32,7 +32,7 @@ export class PicturesService {
   }
 
   actualizarPicture(picture:Picture){
-    return this.http.put<Picture>(`${this.baseUrl}/editar/${picture._id}`, picture)
+    return this.http.put<Picture>(`${this.baseUrl}/picture/update/${picture._id}`, picture)
   }
 
   borrarPicture(id:string){
