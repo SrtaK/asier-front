@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../material/material.module'
+import { FlexLayoutModule } from '@angular/flex-layout'
+import { FormsModule } from '@angular/forms';
 
 import { PicturesRoutingModule } from './pictures-routing.module';
 
@@ -28,7 +30,9 @@ import { ImagenPipe } from './pipes/imagen.pipe';
   imports: [
     CommonModule,
     PicturesRoutingModule,
-    MaterialModule
+    MaterialModule,
+    FlexLayoutModule,
+    FormsModule,
   ]
 })
 export class PicturesModule { }

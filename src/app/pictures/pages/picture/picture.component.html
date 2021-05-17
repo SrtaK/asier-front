@@ -33,26 +33,19 @@
       </mat-list>
 
       <br>
-      <div>
-        <button mat-button
-                color="info"
-                [routerLink]="['/pictures/editar',picture._id]">
-          Editar
-        </button>
 
-        <button mat-button
-                color="warn"
-                [routerLink]="[]">
-          Comprar
-        </button>
 
-      </div>
-      <button mat-button
-              color="warn"
-              (click)="back()"
-              >
-          Regresar
-      </button>
+      <mat-card-actions>
+
+        <mat-card class="my-alternate-theme">
+          <button mat-raised-button color="accent" (click)="back()">Regresar</button>
+          <button mat-raised-button color="primary">Comprar</button>
+          <button mat-raised-button color="warn" [routerLink]="['/pictures/editar',picture._id]" >Editar</button>
+          <button mat-raised-button color="warn">Borrar</button>
+        </mat-card>
+
+      </mat-card-actions>
+
   </div>
 
 </div>
