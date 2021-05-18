@@ -5,8 +5,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { switchMap } from 'rxjs/operators';
 
-import Swal from 'sweetalert2';
-
 import { Picture, Serie } from '../../interfaces/pictures.interface';
 import { PicturesService } from '../../services/pictures.service';
 
@@ -60,11 +58,14 @@ export class AgregarComponent implements OnInit {
 
   ngOnInit(): void {
 
+    //cuando accedo a añadir/no editar me da error
+    //core.js:6142 ERROR HttpErrorResponse {headers: HttpHeaders, status: 500, statusText: "Internal Server Error", url: "http://localhost:4000/api/picture/undefined", ok: false, …}
     this.activatedRoute.params
       .pipe(
         switchMap(({id})=> this.pictureService.getPicturePorId(id))
       )
       .subscribe( res => this.picture = res.picture )
+
   }
 
 
@@ -76,7 +77,7 @@ export class AgregarComponent implements OnInit {
    //Crear nuevo
     this.pictureService.agregarPicture(this.picture)
       .subscribe( picture => {
-        this.router.navigate(['/pictures/editar', 2]);
+        //this.router.navigate(['/pictures/editar', this.picture._id]);
         this.mostrarSnackBAr('Obra guardada');
         this.router.navigateByUrl(`/listado/${this.picture.serie}`)
 
@@ -127,5 +128,6 @@ export class AgregarComponent implements OnInit {
       duration: 2500
     })
   }
+
 
 }

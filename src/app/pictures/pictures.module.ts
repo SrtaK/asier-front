@@ -13,6 +13,7 @@ import { PictureDetailComponent } from './pages/picture-detail/picture-detail.co
 import { MainPicturesComponent } from './pages/main-pictures/main-pictures.component';
 import { PictureTarjetaComponent } from './components/picture-tarjeta/picture-tarjeta.component';
 import { ImagenPipe } from './pipes/imagen.pipe';
+import { ConfirmarComponent } from './components/confirmar/confirmar.component';
 
 
 
@@ -24,7 +25,8 @@ import { ImagenPipe } from './pipes/imagen.pipe';
     MainPicturesComponent,
     PictureDetailComponent,
     PictureTarjetaComponent,
-    PictureComponent
+    PictureComponent,
+    ConfirmarComponent
 
   ],
   imports: [
