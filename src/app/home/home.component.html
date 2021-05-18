@@ -69,14 +69,25 @@
     <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="User menu">
       <mat-icon>accessibility_new</mat-icon>
     </button>
+        <!--si estas logueado que salga el salir y el resto de botones de usuario
+            sino que salga el boton del login y el de registro
+            -->
     <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>transfer_within_a_station</mat-icon>
+        <span routerLink="/users/login">Login</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>person_add</mat-icon>
+        <span routerLink="/users/registro">Registro</span>
+      </button>
       <button mat-menu-item>
         <mat-icon>directions_run</mat-icon>
         <span>Salir</span>
       </button>
       <button mat-menu-item>
         <mat-icon>mood</mat-icon>
-        <span>Mis datos</span>
+        <span routerLink="/users/registro">Mis datos</span>
       </button>
       <button mat-menu-item>
         <mat-icon>shopping_basket</mat-icon>
@@ -87,8 +98,8 @@
   </mat-toolbar>
 
   <!--Aquí muestro las vistas de agregar, listado, busqueda-->
-  <div class="container">
-
+  <div class="container" >
+<div style="background-color: red;"></div>
     <router-outlet></router-outlet>
   </div>
 

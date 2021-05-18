@@ -14,6 +14,7 @@ import { HomeComponent } from './home/home.component';
 import { ErrorComponent } from './shared/error/error.component';
 import { NavComponent } from './shared/nav/nav.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { LandingComponent } from './landing/landing.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { FooterComponent } from './shared/footer/footer.component';
     ErrorComponent,
     NavComponent,
     FooterComponent,
+    LandingComponent,
   ],
   imports: [
     AppRoutingModule,

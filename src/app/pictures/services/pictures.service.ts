@@ -13,8 +13,14 @@ import { environment } from '../../../environments/environment';
 
 export class PicturesService {
 
-  pictures: Picture[] = []
+  private _picture!: Picture;
   private baseUrl: string = environment.basUrl; //variable global
+
+
+
+  get picture(){
+    return {...this._picture};
+  }
 
   //desde aquí hago las peticiones http
   constructor( private http: HttpClient) { }
@@ -28,11 +34,19 @@ export class PicturesService {
   }
 
   agregarPicture(picture:Picture){
-    return this.http.post<Picture>(`${this.baseUrl}/picture/save`, picture)
+    return this.http.post<PictureResp>(`${this.baseUrl}/picture/save`, picture)
+    .pipe(
+      map( resp => resp.ok ),
+      catchError( err => of(err.error.msg) )
+    );
   }
 
   actualizarPicture(picture:Picture){
-    return this.http.put<Picture>(`${this.baseUrl}/picture/update/${picture._id}`, picture)
+    return this.http.put<PictureResp>(`${this.baseUrl}/picture/update/${picture._id}`, picture)
+    .pipe(
+      map( resp => resp.ok ),
+      catchError( err => of(err.error.msg) )
+    );
   }
 
   borrarPicture(id:string){

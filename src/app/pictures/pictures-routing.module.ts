@@ -8,9 +8,13 @@ import { PictureDetailComponent } from './pages/picture-detail/picture-detail.co
 import { HomeComponent } from '../home/home.component';
 import { MainPicturesComponent } from './pages/main-pictures/main-pictures.component';
 
+import { LandingComponent } from '../landing/landing.component';
 
 const routes: Routes = [
-
+  {
+    path: '',
+    component: LandingComponent,
+  },
   {
     path: 'listado/:serie',
     component: ListadoComponent,
