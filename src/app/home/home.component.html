@@ -1,7 +1,7 @@
 <mat-sidenav-container fullscreen>
 
   <!--nav desplegado completo-->
-  <mat-sidenav #sidenav mode="push">
+  <mat-sidenav #sidenav mode="over">
 
     <!--nav top desplegado morado-->
     <mat-toolbar color="secondary">
@@ -73,25 +73,33 @@
             sino que salga el boton del login y el de registro
             -->
     <mat-menu #menu="matMenu">
-      <button mat-menu-item>
+      <button mat-menu-item
+              routerLink="/users/login">
         <mat-icon>transfer_within_a_station</mat-icon>
-        <span routerLink="/users/login">Login</span>
+        <span >Login</span>
       </button>
-      <button mat-menu-item>
+      <button mat-menu-item
+              routerLink="/users/registro">
         <mat-icon>person_add</mat-icon>
-        <span routerLink="/users/registro">Registro</span>
+        <span >Registro</span>
       </button>
-      <button mat-menu-item>
-        <mat-icon>directions_run</mat-icon>
-        <span>Salir</span>
-      </button>
-      <button mat-menu-item>
+      <button mat-menu-item
+              routerLink="/users/usuario/:id">
         <mat-icon>mood</mat-icon>
-        <span routerLink="/users/registro">Mis datos</span>
+        <span >Mis datos</span>
+      </button>
+      <button mat-menu-item
+              routerLink="/users/listado">
+      <mat-icon>group</mat-icon>
+        <span>Listado usuarios</span>
       </button>
       <button mat-menu-item>
         <mat-icon>shopping_basket</mat-icon>
         <span>Mic sompras</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>directions_run</mat-icon>
+        <span>Salir</span>
       </button>
     </mat-menu>
 

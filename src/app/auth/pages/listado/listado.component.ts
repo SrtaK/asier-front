@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../../interfaces/users.interfaces';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -9,13 +10,15 @@ import { AuthService } from '../../services/auth.service';
 
 export class ListadoComponent implements OnInit {
 
+  users: User[]= []
+
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
 
   this.authService.getUsers()
   //se romple porque me falta gestionar el auth
-      .subscribe( resp => console.log(resp));
+      .subscribe( resp => this.users = resp.users);
   }
 
 }

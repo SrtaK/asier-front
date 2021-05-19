@@ -8,6 +8,11 @@ export interface AuthResponse {
   msg?: string
 }
 
+export interface GetUserResponse {
+  ok:   boolean;
+  user: User;
+}
+
 export interface User {
   _id?:      string;
   uid?: string;
@@ -17,4 +22,7 @@ export interface User {
   __v?:      number;
 }
 
-
+export interface GetUsersResponse {
+  ok:    boolean;
+  users: User[];
+}

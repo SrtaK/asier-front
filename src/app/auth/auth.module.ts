@@ -7,6 +7,7 @@ import { RegistroComponent } from './pages/registro/registro.component';
 import { ListadoComponent } from './pages/listado/listado.component';
 import { AuthRoutingModule } from './auth-routing.module';
 import { MainAuthComponent } from './pages/main-auth/main-auth.component';
+import { UserDetailComponent } from './pages/user-detail/user-detail.component';
 
 
 
@@ -15,7 +16,8 @@ import { MainAuthComponent } from './pages/main-auth/main-auth.component';
     LoginComponent,
     RegistroComponent,
     ListadoComponent,
-    MainAuthComponent
+    MainAuthComponent,
+    UserDetailComponent
   ],
   imports: [
     CommonModule,

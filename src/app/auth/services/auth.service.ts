@@ -5,7 +5,7 @@ import { Observable, of } from 'rxjs'
 
 
 import { environment } from '../../../environments/environment';
-import { AuthResponse, User } from '../interfaces/users.interfaces';
+import { AuthResponse, User, GetUserResponse, GetUsersResponse } from '../interfaces/users.interfaces';
 
 
 @Injectable({
@@ -25,7 +25,11 @@ export class AuthService {
 
   getUsers(){
     //como desde el back pido un token para obtenerlo aun no puedo
-    return this.http.get('http://localhost:4000/api/users')
+    return this.http.get<GetUsersResponse>(`${this.baseUrl}/users`)
+  }
+
+  getUserPorId(id:string){
+    return this.http.get<GetUserResponse>(`${this.baseUrl}/user/${id}`)
   }
 
   registro(name:string, email:string, password:string){
@@ -44,6 +48,8 @@ export class AuthService {
         catchError( err => of(err.error.msg) )
       );
   }
+
+
 
   //devuelve un observable
   login(email: string, password: string){

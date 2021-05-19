@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { LoginComponent } from './pages/login/login.component';
-import { RegistroComponent } from './pages/registro/registro.component';
-import { ListadoComponent } from './pages/listado/listado.component';
 import { HomeComponent } from '../home/home.component';
 import { MainAuthComponent } from './pages/main-auth/main-auth.component';
+import { ListadoComponent } from './pages/listado/listado.component';
+import { LoginComponent } from './pages/login/login.component';
+import { RegistroComponent } from './pages/registro/registro.component';
+import { UserDetailComponent } from './pages/user-detail/user-detail.component';
 
 
 const routes: Routes = [
@@ -23,8 +24,12 @@ const routes: Routes = [
         component: RegistroComponent
       },
       {
+        path: 'usuario/:id',
+        component: UserDetailComponent
+      },
+      {
         path: 'editar/:id',
-        component: RegistroComponent
+        component: RegistroComponent,
       },
       {
         path: 'listado',

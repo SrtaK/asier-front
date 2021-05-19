@@ -52,21 +52,23 @@ export class AgregarComponent implements OnInit {
                 private activatedRoute: ActivatedRoute,
                 private router:Router,
                 private snackBar: MatSnackBar,
-                public dialog: MatDialog
+                public dialog: MatDialog,
+
 
               ) { }
 
   ngOnInit(): void {
 
+    // cuando accedo a añadir/no editar me da error
+    // core.js:6142 ERROR HttpErrorResponse {headers: HttpHeaders, status: 500, statusText: "Internal Server Error", url: "http://localhost:4000/api/picture/undefined", ok: false, …}
+    if(this.router.url.includes('editar')){
+      this.activatedRoute.params
+      .pipe(
+        switchMap(({id})=> this.pictureService.getPicturePorId(id))
+      )
+      .subscribe( res => this.picture = res.picture )
+    }
 
-
-    //cuando accedo a añadir/no editar me da error
-    //core.js:6142 ERROR HttpErrorResponse {headers: HttpHeaders, status: 500, statusText: "Internal Server Error", url: "http://localhost:4000/api/picture/undefined", ok: false, …}
-    // this.activatedRoute.params
-    //   .pipe(
-    //     switchMap(({id})=> this.pictureService.getPicturePorId(id))
-    //   )
-    //   .subscribe( res => this.picture = res.picture )
 
   }
 
