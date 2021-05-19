@@ -2,3 +2,8 @@
 {{user | json}}
 
 
+
+  <button mat-raised-button color="primary">Comprar</button>
+  <button mat-raised-button color="warn" [routerLink]="['/users/editar',user._id]" >Editar</button>
+  <button mat-raised-button color="warn">Borrar</button>
+

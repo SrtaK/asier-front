@@ -12,6 +12,7 @@ import { PicturesService } from '../../services/pictures.service';
   templateUrl: './agregar.component.html',
   styleUrls: ['./agregar.component.css']
 })
+
 export class AgregarComponent implements OnInit {
 
 
@@ -84,7 +85,7 @@ export class AgregarComponent implements OnInit {
         //si es correcto navega
         if(ok === true){
           this.mostrarSnackBAr('Obra guardada');
-          this.router.navigateByUrl(`/home`)
+          this.router.navigateByUrl(`/pictures/listado/${this.normalizarSerie(this.picture)}`)
         }else{
           //sino es correcto manejo el error
           this.mostrarSnackBAr('No se ha guardado, inténta más tarde');
@@ -102,7 +103,7 @@ export class AgregarComponent implements OnInit {
     .subscribe( resp => {
       console.log('Actualizando', resp);
       this.mostrarSnackBAr('Obra actualizada');
-      this.router.navigateByUrl(`/listado/${this.picture.serie}`)
+      this.router.navigateByUrl(`/pictures/listado/${this.normalizarSerie(this.picture)}`)
 
     })
   }
@@ -114,4 +115,12 @@ export class AgregarComponent implements OnInit {
   }
 
 
+  normalizarSerie(picture: Picture){
+
+  //elimino espacios en blanco y caracteres
+  var rutaSerie = picture.serie.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/ /g, "-");
+  return rutaSerie;
+
+
+  }
 }

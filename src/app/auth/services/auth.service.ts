@@ -49,6 +49,13 @@ export class AuthService {
       );
   }
 
+  actualizarUser(user:User){
+    return this.http.put<GetUserResponse>(`${this.baseUrl}/update-user/${user._id}`, user)
+    .pipe(
+      map( resp => resp.ok ),
+      catchError( err => of(err.error.msg) )
+    );
+  }
 
 
   //devuelve un observable

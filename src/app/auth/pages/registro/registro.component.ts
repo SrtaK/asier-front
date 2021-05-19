@@ -1,9 +1,12 @@
-import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
 
 import Swal from 'sweetalert2';
+
+import { User } from '../../interfaces/users.interfaces';
 
 import { AuthService } from '../../services/auth.service';
 
@@ -12,7 +15,10 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './registro.component.html',
   styleUrls: ['./registro.component.css']
 })
-export class RegistroComponent{
+
+export class RegistroComponent implements OnInit{
+
+  user!: User;
 
   formularioRegister: FormGroup = this.fb.group({
     name: ['', [Validators.required, Validators.minLength(2)]],
@@ -22,9 +28,19 @@ export class RegistroComponent{
 
   constructor(private fb: FormBuilder,
               private router: Router,
+              private activatedRoute: ActivatedRoute,
               private authService: AuthService,
               private snackBar: MatSnackBar) { }
 
+ngOnInit(): void {
+  if(this.router.url.includes('editar')){
+    this.activatedRoute.params
+    .pipe(
+      switchMap(({id})=> this.authService.getUserPorId(id))
+    )
+    .subscribe( res => this.user = res.user )
+  }
+}
 
   register(){
     const { name, email, password } = this.formularioRegister.value;
@@ -40,6 +56,20 @@ export class RegistroComponent{
         }
       })
 
+  }
+
+  actualizar(){
+    if( this.user.name.trim().length == 0){
+      return
+    }
+
+    this.authService.actualizarUser(this.user)
+    .subscribe( resp => {
+      console.log('Actualizando', resp);
+      this.mostrarSnackBAr('Usuario actualizado');
+      this.router.navigateByUrl(`/usuario/${this.user._id}`)
+
+    })
   }
 
 
