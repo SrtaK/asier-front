@@ -3,6 +3,7 @@ import { FlexLayoutModule } from '@angular/flex-layout'
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { MaterialModule } from '../material/material.module'
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { PicturesRoutingModule } from './pictures-routing.module';
 
@@ -39,6 +40,7 @@ import { ConfirmarComponent } from './components/confirmar/confirmar.component';
     MaterialModule,
     FlexLayoutModule,
     FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class PicturesModule { }

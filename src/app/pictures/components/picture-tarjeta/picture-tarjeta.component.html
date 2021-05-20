@@ -4,6 +4,7 @@
     <mat-card-title>Nombre: {{picture.nombre}} </mat-card-title>
     <mat-card-subtitle>Año: {{picture.annio}} </mat-card-subtitle>
   </mat-card-header>
+  <img [src]="picture.imagen" class="mr-3" [alt]="picture.nombre">
 
   <img  mat-card-image
         src="assets/pictures/{{picture.imagen}}.jpg"

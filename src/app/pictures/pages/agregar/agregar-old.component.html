@@ -1,0 +1,143 @@
+<h1>
+  {{(picture._id)? 'Editar Obra' : 'Nueva obra'}}
+    <small>{{picture.nombre}}</small>
+  </h1>
+
+  <div  fxLayout="row"
+        fxLayout.xs="column"
+        fxLayoutGap="40px">
+
+    <div fxFlex="50" fxLayout="column">
+
+      <div  fxLayout="row"
+            fxLayout.xs="column"
+            fxLayoutGap="20px">
+
+        <mat-form-field fxFlex-="100" fxLayout.xs="column">
+          <mat-label>Nombre</mat-label>
+            <input  matInput
+                    type="text"
+                    [(ngModel)]="picture.nombre"
+                    required
+                    autocomplete="off">
+        </mat-form-field>
+
+        <mat-form-field fxFlex-="100">
+          <mat-label>Serie</mat-label>
+            <mat-select required
+                        [(ngModel)]="picture.serie">
+            <mat-option *ngFor="let serie of series"
+                        [value]="serie.id">
+                        {{ serie.desc }}
+            </mat-option>
+            </mat-select>
+        </mat-form-field>
+      </div>
+
+      <mat-form-field>
+        <mat-label>Año</mat-label>
+          <input  matInput
+                  type="text"
+                  [(ngModel)]="picture.annio"
+                  required
+                  autocomplete="off">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Técnica</mat-label>
+          <input  matInput
+                  type="text"
+                  [(ngModel)]="picture.tecnica"
+                  required
+                  autocomplete="off">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Medidas</mat-label>
+        <input  matInput
+                type="text"
+                [(ngModel)]="picture.medidas"
+                required
+                autocomplete="off">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Soporte</mat-label>
+          <input  matInput
+                  type="text"
+                  [(ngModel)]="picture.soporte"
+                  required
+                  autocomplete="off">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Disponible</mat-label>
+          <input  matInput
+                  type="text"
+                  [(ngModel)]="picture.disponible"
+                  required
+                  autocomplete="off">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Precio</mat-label>
+          <input  matInput
+                  type="text"
+                  [(ngModel)]="picture.precio"
+                  autocomplete="off">
+      </mat-form-field>
+
+      <!-- <mat-form-field>
+        <mat-label>Imagen</mat-label>
+          <input  matInput
+                  type="text"
+                  [(ngModel)]="picture.imagen"
+                  autocomplete="off">
+      </mat-form-field>
+      <angular-file-uploader
+          [config]="afuConfig">
+      </angular-file-uploader> -->
+      <br>
+				<input type="file" name="resume" [(ngModel)]="form.resume" observeFiles />
+
+      <input name="imagen" type="file" class="file-upload" onchange="console.log(event.target.files)">
+
+      <div >
+        <button mat-raised-button
+                color="primary"
+                (click)="actualizar()">
+          <mat-icon>edit</mat-icon>
+          Actualizar
+        </button>
+        <span class="spacer"></span>
+
+        <button *ngIf="picture._id"
+                mat-raised-button
+
+                color="warn">
+          <mat-icon>remove</mat-icon>
+          Borrar
+        </button>
+      </div>
+      <div>
+        <button mat-raised-button
+                color="primary"
+                (click)="save()">
+          <mat-icon>edit</mat-icon>
+          Guardar
+        </button>
+      </div>
+
+    </div>
+
+    <div  *ngIf="picture._id"
+          fxFlex-="50">
+      <img  mat-card-image
+      src="assets/pictures/{{picture.imagen}}.jpg"
+      style="width:20%">
+      <!-- <img [src]="picture | imagen"> -->
+    </div>
+
+
+
+  </div>

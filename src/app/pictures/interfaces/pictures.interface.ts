@@ -26,7 +26,7 @@ export interface Picture {
   _id?:        string;
   nombre:     string;
   annio:      string;
-  imagen?:     string;
+  imagen:     string;
   serie:      string;
   medidas:    string;
   tecnica:    string;

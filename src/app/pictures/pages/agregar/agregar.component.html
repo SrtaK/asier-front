@@ -1,143 +1,89 @@
-<h1>
-  {{(picture._id)? 'Editar Obra' : 'Nueva obra'}}
-    <small>{{picture.nombre}}</small>
-  </h1>
 
-  <div  fxLayout="row"
-        fxLayout.xs="column"
-        fxLayoutGap="40px">
+  <h1>
+    {{(picture._id)? 'Editar Obra' : 'Nueva obra'}}
+      <small>{{picture.nombre}}</small>
+    </h1>
 
-    <div fxFlex="50" fxLayout="column">
+    <div  fxLayout="row"
+          fxLayout.xs="column"
+          fxLayoutGap="40px">
 
-      <div  fxLayout="row"
-            fxLayout.xs="column"
-            fxLayoutGap="20px">
+      <div fxFlex="50" fxLayout="column">
 
-        <mat-form-field fxFlex-="100" fxLayout.xs="column">
-          <mat-label>Nombre</mat-label>
-            <input  matInput
-                    type="text"
-                    [(ngModel)]="picture.nombre"
-                    required
-                    autocomplete="off">
-        </mat-form-field>
 
-        <mat-form-field fxFlex-="100">
-          <mat-label>Serie</mat-label>
-            <mat-select required
-                        [(ngModel)]="picture.serie">
-            <mat-option *ngFor="let serie of series"
-                        [value]="serie.id">
-                        {{ serie.desc }}
-            </mat-option>
-            </mat-select>
-        </mat-form-field>
+        <form [formGroup]="miFormulario" (ngSubmit)="save()">
+          <!-- Progress Bar -->
+          <div class="progress form-group" *ngIf="this.percentDone">
+            <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+              [style.width.%]="this.percentDone">
+            </div>
+          </div>
+
+          <!-- Image Preview -->
+          <div class="form-group">
+            <div class="preview" *ngIf="preview && preview !== null">
+              <img [src]="preview" [alt]="miFormulario.value.nombre">
+            </div>
+          </div>
+
+          <!-- File Input -->
+          <div class="form-group">
+            <input type="file" (change)="uploadFile($event)">
+          </div>
+
+          <!-- nombre -->
+          <div class="form-group input-group-lg">
+            <input class="form-control" placeholder="nombre" formControlName="nombre">
+          </div>
+
+          <!-- annio -->
+          <div class="form-group input-group-lg">
+            <input class="form-control" placeholder="annio" formControlName="annio">
+          </div>
+
+          <!-- serie -->
+          <div class="form-group input-group-lg">
+            <input class="form-control" placeholder="serie" formControlName="serie">
+          </div>
+
+          <!-- medidas -->
+          <div class="form-group input-group-lg">
+            <input class="form-control" placeholder="medidas" formControlName="medidas">
+          </div>
+
+          <!-- tecnica -->
+          <div class="form-group input-group-lg">
+            <input class="form-control" placeholder="tecnica" formControlName="tecnica">
+          </div>
+
+          <!-- soporte -->
+          <div class="form-group input-group-lg">
+            <input class="form-control" placeholder="soporte" formControlName="soporte">
+          </div>
+
+        <!-- disponible -->
+        <div class="form-group input-group-lg">
+          <input class="form-control" placeholder="disponible" formControlName="disponible">
+        </div>
+
+        <!-- precio -->
+        <div class="form-group input-group-lg">
+          <input class="form-control" placeholder="precio" formControlName="disponible">
+        </div>
+
+          <!-- Submit -->
+          <div class="form-group">
+            <button type="submit" class="btn btn-danger btn-block btn-lg">Create User</button>
+          </div>
+        </form>
+
+
+
       </div>
 
-      <mat-form-field>
-        <mat-label>Año</mat-label>
-          <input  matInput
-                  type="text"
-                  [(ngModel)]="picture.annio"
-                  required
-                  autocomplete="off">
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>Técnica</mat-label>
-          <input  matInput
-                  type="text"
-                  [(ngModel)]="picture.tecnica"
-                  required
-                  autocomplete="off">
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>Medidas</mat-label>
-        <input  matInput
-                type="text"
-                [(ngModel)]="picture.medidas"
-                required
-                autocomplete="off">
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>Soporte</mat-label>
-          <input  matInput
-                  type="text"
-                  [(ngModel)]="picture.soporte"
-                  required
-                  autocomplete="off">
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>Disponible</mat-label>
-          <input  matInput
-                  type="text"
-                  [(ngModel)]="picture.disponible"
-                  required
-                  autocomplete="off">
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>Precio</mat-label>
-          <input  matInput
-                  type="text"
-                  [(ngModel)]="picture.precio"
-                  autocomplete="off">
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>Imagen</mat-label>
-          <input  matInput
-                  type="text"
-                  [(ngModel)]="picture.imagen"
-                  autocomplete="off">
-      </mat-form-field>
 
 
 
-      <br>
-
-
-
-      <div >
-        <button mat-raised-button
-                color="primary"
-                (click)="actualizar()">
-          <mat-icon>edit</mat-icon>
-          Actualizar
-        </button>
-        <span class="spacer"></span>
-
-        <button *ngIf="picture._id"
-                mat-raised-button
-
-                color="warn">
-          <mat-icon>remove</mat-icon>
-          Borrar
-        </button>
-      </div>
-      <div>
-        <button mat-raised-button
-                color="primary"
-                (click)="save()">
-          <mat-icon>edit</mat-icon>
-          Guardar
-        </button>
-      </div>
 
     </div>
-
-    <div  *ngIf="picture._id"
-          fxFlex-="50">
-      <img  mat-card-image
-      src="assets/pictures/{{picture.imagen}}.jpg"
-      style="width:20%">
-      <!-- <img [src]="picture | imagen"> -->
-    </div>
-
-
-
-  </div>
 
