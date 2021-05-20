@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
-
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { User } from '../../interfaces/users.interfaces';
 import { AuthService } from '../../services/auth.service';
+import { ConfirmarComponent } from 'src/app/pictures/components/confirmar/confirmar.component';
+import { MatDialog } from '@angular/material/dialog';
 
 
 
@@ -18,17 +20,58 @@ export class UserDetailComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute,
               private authService: AuthService,
-              // private router: Router,
+              public dialog: MatDialog,
+              private router: Router,
               // private location: Location
-               ) { }
+              private snackBar: MatSnackBar,
+              ) { }
 
   ngOnInit(): void {
-    this.activatedRoute.params
-    .pipe(
-      switchMap(({id}) => this.authService.getUserPorId(id))
+    if(this.router.url.includes('usuario')){
+      this.activatedRoute.params
+      .pipe(
+        switchMap(({id}) => this.authService.getUserPorId(id))
+      )
+      .subscribe(
+        ok => {
+          this.user = ok.user
+        })
+    }else{
+      this.user = {
+        name: '',
+        email: '',
+        _id:'1'
+      }
+    }
+  }
+
+  borrar(){
+
+    const dialog = this.dialog.open(ConfirmarComponent,{
+      width: '250px',
+      data: {...this.user}
+    });
+
+    dialog.afterClosed().subscribe(
+      (result) => {
+        if(result){
+          this.authService.borrarUser(this.user._id!)
+            .subscribe( resp => {
+              //si se borra llévame al listado
+              this.mostrarSnackBAr('Usuario eliminado');
+              this.router.navigateByUrl(`/home`)
+            })
+        }
+      }
     )
-    .subscribe(resp => this.user = resp.user)
-    console.log('funciona')
+  }
+
+
+
+  mostrarSnackBAr(mensaje: string){
+    this.snackBar.open(mensaje, 'ok!', {
+      duration: 2500
+    })
   }
 
 }

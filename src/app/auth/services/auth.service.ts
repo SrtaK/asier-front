@@ -108,6 +108,9 @@ export class AuthService {
   }
 
 
+  borrarUser(id:string){
+    return this.http.delete<any>(`${ this.baseUrl }/delete-user/${ id }`)
 
+  }
 
 }

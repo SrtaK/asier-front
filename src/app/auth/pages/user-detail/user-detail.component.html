@@ -3,7 +3,7 @@
 
 
 
-  <button mat-raised-button color="primary">Comprar</button>
-  <button mat-raised-button color="warn" [routerLink]="['/users/editar',user._id]" >Editar</button>
-  <button mat-raised-button color="warn">Borrar</button>
+  <button class="btn" color="primary">Comprar</button>
+  <button mat-raised-button color="warn" [routerLink]="['/users/editar',1]" >Editar</button>
+  <button (click)="borrar()">Borrar</button>
 

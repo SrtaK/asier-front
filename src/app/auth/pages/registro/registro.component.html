@@ -4,33 +4,30 @@
       (ngSubmit)="register()">
 
   <span class="login100-form-title p-b-49">
-    {{(user._id)? 'Edita tus datos' : 'Nuevo Usuario'}}
+  'Edita tus datos' : 'Nuevo Usuario'
   </span>
 
   <div class="wrap-input100 m-b-23">
-    <span class="label-input100">Nombre</span>
     <input class="input100"
           type="text"
           formControlName="name"
-          placeholder="{{user.name}}">
+          placeholder="Nombre  (mínimo 2 caracteres)">
     <span class="focus-input100"></span>
   </div>
 
   <div class="wrap-input100 m-b-23">
-      <span class="label-input100">Email</span>
       <input class="input100"
              type="email"
              formControlName="email"
-             placeholder="Ingrese su email">
+             placeholder="Email  (example@mail.com)">
       <span class="focus-input100"></span>
   </div>
 
   <div class="wrap-input100">
-      <span class="label-input100">Password</span>
       <input class="input100"
              type="password"
              formControlName="password"
-             placeholder="Ingrese su contraseña">
+             placeholder="Contraseña (mínimo 6 caracteres)">
       <span class="focus-input100"></span>
   </div>
 

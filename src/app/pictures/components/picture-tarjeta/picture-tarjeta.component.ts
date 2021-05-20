@@ -43,7 +43,6 @@ constructor(  private pictureService: PicturesService,
               this.mostrarSnackBAr('Obra eliminada');
               this.router.navigateByUrl(`/listado/${this.picture.serie}`)
 
-
             })
         }
       }

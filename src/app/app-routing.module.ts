@@ -25,7 +25,8 @@ const routes: Routes = [
     },
     {
       path: '**',
-      component: ErrorComponent
+      redirectTo: ''
+      //component: ErrorComponent
     }
 
 

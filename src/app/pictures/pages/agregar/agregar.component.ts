@@ -54,7 +54,7 @@ export class AgregarComponent implements OnInit {
   preview!: string;
   percentDone: any = 0;
 
- miFormulario = this.fb.group({
+  miFormulario = this.fb.group({
     nombre: ['', [Validators.required, Validators.minLength(5)]],
     annio:['', [Validators.required, Validators.minLength(4)]],
     imagen:[ null, Validators.required],
@@ -73,9 +73,6 @@ export class AgregarComponent implements OnInit {
                 private snackBar: MatSnackBar,
                 public dialog: MatDialog,
                 private fb: FormBuilder,
-
-
-
               ) {
 
                }
@@ -113,7 +110,6 @@ export class AgregarComponent implements OnInit {
 
 
   save(){
-    //pequeña validación a ver si llega un picture
 
    //Crear nuevo
     this.pictureService.agregarPicture(
@@ -141,7 +137,8 @@ export class AgregarComponent implements OnInit {
           case HttpEventType.Response:
             console.log('User successfully created!', event.body);
             this.percentDone = false;
-            this.router.navigate(['users-list'])
+            this.mostrarSnackBAr('Obra guardada');
+            this.router.navigateByUrl(`/pictures/listado/${this.normalizarSerie( this.miFormulario.value.serie)}`)
         }
       })
     }

@@ -11,7 +11,7 @@ import { Picture } from '../../interfaces/pictures.interface';
 export class ConfirmarComponent implements OnInit {
 
   constructor(  private dialogRef:MatDialogRef<ConfirmarComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Picture) { }
+    @Inject(MAT_DIALOG_DATA) public data: Picture ) { }
 
   ngOnInit(): void {
   console.log(this.data)

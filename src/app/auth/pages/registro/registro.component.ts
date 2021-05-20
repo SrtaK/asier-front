@@ -33,13 +33,14 @@ export class RegistroComponent implements OnInit{
               private snackBar: MatSnackBar) { }
 
 ngOnInit(): void {
-  if(this.router.url.includes('editar')){
-    this.activatedRoute.params
-    .pipe(
-      switchMap(({id})=> this.authService.getUserPorId(id))
-    )
-    .subscribe( res => this.user = res.user )
-  }
+  //si la url tiene editar busco al usuario
+  // if(this.router.url.includes('editar')){
+  //   this.activatedRoute.params
+  //   .pipe(
+  //     switchMap(({id})=> this.authService.getUserPorId(id))
+  //   )
+  //   .subscribe( res => this.user = res.user )
+  // }
 }
 
   register(){
