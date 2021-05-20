@@ -20,14 +20,6 @@ const routes: Routes = [
     component: ListadoComponent,
   },
   {
-    path:'agregar',
-    component: AgregarComponent
-  },
-  {
-    path: 'editar/:id',
-    component: AgregarComponent
-  },
-  {
     path: 'detail/:id',
     component: PictureDetailComponent
   },
@@ -35,6 +27,21 @@ const routes: Routes = [
     path: ':id',
     component: PictureComponent
   },
+  {
+    path: 'configurar',
+    component: MainPicturesComponent,
+    children: [
+      {
+        path:'agregar',
+        component: AgregarComponent
+      },
+      {
+        path: 'editar/:id',
+        component: AgregarComponent
+      }
+    ]
+  },
+
   {
     path: '**',
     component:HomeComponent
