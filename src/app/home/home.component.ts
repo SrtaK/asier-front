@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
+import { AuthService } from '../auth/services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -8,13 +11,26 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor( private router: Router) { }
+  constructor( private router: Router,
+                private authService: AuthService,
+                private snackBar: MatSnackBar,
+                ) { }
 
   ngOnInit(): void {
   }
 
   logout(){
-    this.router.navigateByUrl('/users/login')
+    this.mostrarSnackBAr('¡Hasta pronto!');
+    this.router.navigateByUrl('/users/login');
+    this.authService.logout();
+    console.log('done!');
 
+
+  }
+
+  mostrarSnackBAr(mensaje: string){
+    this.snackBar.open(mensaje, 'ok', {
+      duration: 2500
+    })
   }
 }
