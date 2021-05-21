@@ -1,9 +1,31 @@
-<p>hola</p>
-{{user | json}}
+<span class="login100-form-title p-b-49">
+  Tus datos
+</span>
+<mat-list class="m-6">
+  <mat-list-item>Nombre: {{user.name}}</mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item>Email: {{user.email}}</mat-list-item>
+</mat-list>
 
+  <div class="container-login100-form-btn">
+      <div class="wrap-login100-form-btn">
+          <div class="login100-form-bgbtn"></div>
+          <button class="login100-form-btn"
+                  [routerLink]="['/users/editar',user._id]">
+                  Editar
+          </button>
+      </div>
+  </div>
+<br>
+  <div class="container-login100-form-btn p-2" >
+    <div class="wrap-login100-form-btn">
+        <div class="login100-form-bgbtn"></div>
+        <button class="login100-form-btn"
+                (click)="borrar()">
+                Borrar
+        </button>
 
+    </div>
 
-  <button class="btn" color="primary">Comprar</button>
-  <button mat-raised-button color="warn" [routerLink]="['/users/editar',1]" >Editar</button>
-  <button (click)="borrar()">Borrar</button>
+</div>
 

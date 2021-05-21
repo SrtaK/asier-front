@@ -5,6 +5,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatDividerModule} from '@angular/material/divider';
 import {MatGridListModule} from '@angular/material/grid-list';
 //import { MaterialFileInputModule } from 'ngx-material-file-input';
 import {MatFormField} from "@angular/material/form-field";
@@ -26,6 +27,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatButtonModule,
     MatCardModule,
     MatDialogModule,
+    MatDividerModule,
     //MatFormField,
    // MaterialFileInputModule,
     AngularFileUploaderModule,

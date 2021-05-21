@@ -15,6 +15,7 @@ import { AuthResponse, User, GetUserResponse, GetUsersResponse } from '../interf
 export class AuthService {
 
   private baseUrl: string = environment.basUrl; //variable global
+
   private _usuario!:User;
 
   constructor(private http: HttpClient) { }
@@ -73,6 +74,8 @@ export class AuthService {
         tap( resp => {
           if ( resp.ok ) {
             localStorage.setItem('token', resp.token! );
+            //la guardo para acceder con facilidad
+            localStorage.setItem('uid', resp.uid!);
             this._usuario = {
               name: resp.name!,
               uid: resp.uid!,
@@ -91,9 +94,9 @@ export class AuthService {
 
   //leo la función renew y con ella se los datos del user
   validarToken(): Observable<boolean>{
-    const url = `${this.baseUrl}/auth/renew`;
+    const url = `${this.baseUrl}/renew`;
     const headers = new HttpHeaders()
-      .set('x-token', localStorage.getItem('token') || '');//los heqders que quiero mandar
+      .set('x-token', localStorage.getItem('token') || '');//los heqders que quiero mandar, si es nulo string vacio
 
       return this.http.get<AuthResponse>( url, { headers } )
       .pipe(
@@ -106,7 +109,6 @@ export class AuthService {
             email: resp.email!
 
           }
-
           return resp.ok;
         }),
         catchError( err => of(false) )
@@ -117,6 +119,7 @@ export class AuthService {
   //destruye la sesion borrando el token
   logout(){
     localStorage.removeItem('token');
+    localStorage.removeItem('uid');
   }
 
 

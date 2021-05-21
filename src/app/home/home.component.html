@@ -64,7 +64,7 @@
     <!--para poner cada icono en la izq y otro a la dcha-->
     <span class="spacer"></span>
 
-    <span>usuario</span>
+    <span *ngIf="user">{{user.name}}</span>
 
     <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="User menu">
       <mat-icon>accessibility_new</mat-icon>
@@ -83,8 +83,10 @@
         <mat-icon>person_add</mat-icon>
         <span >Registro</span>
       </button>
+
+      <div *ngIf="user">
       <button mat-menu-item
-              routerLink="/users/usuario/:id">
+              routerLink="/users/usuario/{{user._id}}">
         <mat-icon>mood</mat-icon>
         <span >Mis datos</span>
       </button>
@@ -102,6 +104,7 @@
         <mat-icon>directions_run</mat-icon>
         <span>Salir</span>
       </button>
+    </div>
     </mat-menu>
 
   </mat-toolbar>

@@ -9,6 +9,7 @@ import { HomeComponent } from '../home/home.component';
 import { MainPicturesComponent } from './pages/main-pictures/main-pictures.component';
 
 import { LandingComponent } from '../landing/landing.component';
+import { ValidarTokenGuard } from '../guards/validar-token.guard';
 
 const routes: Routes = [
   {
@@ -30,6 +31,8 @@ const routes: Routes = [
   {
     path: 'configurar',
     component: MainPicturesComponent,
+    canActivate: [ValidarTokenGuard],
+    canLoad: [ValidarTokenGuard],
     children: [
       {
         path:'agregar',

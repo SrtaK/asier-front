@@ -36,10 +36,8 @@ export class LoginComponent{
 
       this.authService.login(email, password)
         .subscribe(ok =>{
-          console.log(ok);
           //si es correcto navega
           if(ok === true){
-            console.log(ok);
             this.mostrarSnackBAr('Te has logueado con éxito');
             this.router.navigateByUrl(`/users/usuario/${this.authService.usuario.uid}`);
 

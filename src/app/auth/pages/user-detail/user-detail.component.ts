@@ -36,12 +36,6 @@ export class UserDetailComponent implements OnInit {
         ok => {
           this.user = ok.user
         })
-    }else{
-      this.user = {
-        name: '',
-        email: '',
-        _id:'1'
-      }
     }
   }
 

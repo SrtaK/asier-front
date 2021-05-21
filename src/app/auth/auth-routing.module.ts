@@ -7,6 +7,8 @@ import { ListadoComponent } from './pages/listado/listado.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { UserDetailComponent } from './pages/user-detail/user-detail.component';
+import { EditarComponent } from './pages/editar/editar.component';
+import { ValidarTokenGuard } from '../guards/validar-token.guard';
 
 
 const routes: Routes = [
@@ -25,15 +27,21 @@ const routes: Routes = [
       },
       {
         path: 'usuario/:id',
-        component: UserDetailComponent
+        component: UserDetailComponent,
+        canActivate: [ValidarTokenGuard],
+        canLoad: [ValidarTokenGuard],
       },
       {
         path: 'editar/:id',
-        component: RegistroComponent,
+        component: EditarComponent,
+        canActivate: [ValidarTokenGuard],
+        canLoad: [ValidarTokenGuard],
       },
       {
         path: 'listado',
-        component: ListadoComponent
+        component: ListadoComponent,
+        canActivate: [ValidarTokenGuard],
+        canLoad: [ValidarTokenGuard],
       },
       {
         path: '**',
