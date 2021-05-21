@@ -20,6 +20,10 @@ export class LoginComponent{
     password:['', [Validators.required, Validators.minLength(6)]]
   });
 
+  get usuario(){
+    return this.authService.usuario
+  }
+
   constructor(private fb: FormBuilder,
     private router: Router,
     private authService: AuthService,
@@ -27,7 +31,7 @@ export class LoginComponent{
     ) { }
 
     login(){
-      console.log(this.miFormulario.value)
+      //console.log(this.miFormulario.value)
       const { email, password } = this.miFormulario.value;
 
       this.authService.login(email, password)
@@ -35,8 +39,10 @@ export class LoginComponent{
           console.log(ok);
           //si es correcto navega
           if(ok === true){
+            console.log(ok);
             this.mostrarSnackBAr('Te has logueado con éxito');
-            this.router.navigateByUrl('/home')
+            this.router.navigateByUrl(`/users/usuario/${this.authService.usuario.uid}`);
+
           }else{
             //sino es correcto manejo el error
             Swal.fire('Error', ok, 'error');

@@ -19,6 +19,7 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
+  //para no tener eque modificar directamente el usuario
   get usuario(){
     return {...this._usuario};
   }
@@ -44,6 +45,7 @@ export class AuthService {
 
           }
         }),
+        //muto la respuesta, quien se suscriba a este metodo solo va a obtener true o false
         map( resp => resp.ok ),
         catchError( err => of(err.error.msg) )
       );
@@ -66,12 +68,22 @@ export class AuthService {
 
     return this.http.post<AuthResponse>( url, body )
       .pipe(
+        //tap hace que podamos ejecutar cosas ente operadores,
+        //ejecuta ek codigo que hay dentro antes de que pase al siguiente operador
         tap( resp => {
           if ( resp.ok ) {
             localStorage.setItem('token', resp.token! );
+            this._usuario = {
+              name: resp.name!,
+              uid: resp.uid!,
+              email: resp.email!
+
+            }
 
           }
         }),
+        //el map muta la respuesta, con esta línea podremos suscribirnos a un booleano
+        //el resultado de map se pasa al siguiente operador
         map( resp => resp.ok ),
         catchError( err => of(err.error.msg) )
       );
@@ -90,7 +102,7 @@ export class AuthService {
           localStorage.setItem('token', resp.token! );
           this._usuario = {
             name: resp.name!,
-            //uid: resp.uid!,
+            uid: resp.uid!,
             email: resp.email!
 
           }

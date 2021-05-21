@@ -26,3 +26,8 @@ export interface GetUsersResponse {
   ok:    boolean;
   users: User[];
 }
+
+export interface WebUser {
+  uid: string;
+  name: string;
+}
