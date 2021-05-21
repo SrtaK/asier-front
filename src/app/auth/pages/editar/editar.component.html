@@ -1,6 +1,6 @@
 <form class="login100-form"
       autocomplete="off"
-      [formGroup]="formularioRegister"
+      [formGroup]="formularioEditar"
       (ngSubmit)="actualizar()">
 
   <span class="login100-form-title p-b-49">
@@ -38,7 +38,7 @@
           <div class="login100-form-bgbtn"></div>
           <button type="submit"
           class="login100-form-btn"
-          [disabled]="formularioRegister.invalid">
+          [disabled]="formularioEditar.invalid">
               Actualizar
           </button>
       </div>

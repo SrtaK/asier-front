@@ -31,6 +31,7 @@ export class AuthService {
   }
 
   getUserPorId(id:string){
+    //devuelve ok(boolean) y user
     return this.http.get<GetUserResponse>(`${this.baseUrl}/user/${id}`)
   }
 
@@ -52,12 +53,12 @@ export class AuthService {
       );
   }
 
-  actualizarUser(user:User){
-    return this.http.put<GetUserResponse>(`${this.baseUrl}/update-user/${user._id}`, user)
-    .pipe(
-      map( resp => resp.ok ),
-      catchError( err => of(err.error.msg) )
-    );
+  actualizarUser(user:User, id:string){
+    return this.http.put<GetUserResponse>(`${this.baseUrl}/update-user/${id}`, user)
+    // .pipe(
+    //   map( resp => console.log(resp) ),
+    //   catchError( err => of(err.error.msg) )
+    // );
   }
 
 

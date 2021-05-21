@@ -19,7 +19,7 @@ import { AuthService } from '../../services/auth.service';
 export class EditarComponent implements OnInit {
   user!: User;
 
-  formularioRegister: FormGroup = this.fb.group({
+  formularioEditar: FormGroup = this.fb.group({
     name: ['', [Validators.required, Validators.minLength(2)]],
     email: ['', [Validators.required, Validators.email]],
     password:['', [Validators.required, Validators.minLength(6)]]
@@ -38,22 +38,20 @@ export class EditarComponent implements OnInit {
         switchMap(({id}) => this.authService.getUserPorId(id))
       )
       .subscribe(
-        ok => {
-          this.user = ok.user
+        resp => {
+          this.user = resp.user
         })
 
   }
 
   actualizar(){
-    if( this.user.name.trim().length == 0){
-      return
-    }
-
-    this.authService.actualizarUser(this.user)
+    const userForm = this.formularioEditar.value;
+    this.authService.actualizarUser(userForm, this.user._id!)
     .subscribe( resp => {
+      this.user = resp.user
       console.log('Actualizando', resp);
       this.mostrarSnackBAr('Usuario actualizado');
-      this.router.navigateByUrl(`/usuario/${this.user._id}`)
+      this.router.navigateByUrl(`/users/usuario/${this.user._id}`)
 
     })
   }
