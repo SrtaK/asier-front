@@ -14,7 +14,7 @@ import { environment } from '../../../environments/environment';
 export class PicturesService {
 
   private _picture!: Picture;
-  private baseUrl: string = environment.basUrl; //variable global
+  private baseUrl: string = environment.baseUrl; //variable global
 
 
 

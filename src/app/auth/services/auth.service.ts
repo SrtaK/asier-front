@@ -14,7 +14,7 @@ import { AuthResponse, User, GetUserResponse, GetUsersResponse } from '../interf
 
 export class AuthService {
 
-  private baseUrl: string = environment.basUrl; //variable global
+  private baseUrl: string = environment.baseUrl; //variable global
 
   private _usuario!:User;
 
