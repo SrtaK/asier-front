@@ -14,7 +14,7 @@ export class ConfirmarComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: Picture ) { }
 
   ngOnInit(): void {
-  console.log(this.data)
+  //console.log(this.data)
   }
 
 

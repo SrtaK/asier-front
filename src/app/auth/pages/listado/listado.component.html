@@ -1,3 +1,24 @@
-<div *ngFor="let user of users">
-  {{user.name}}
+<div>
 </div>
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Email</th>
+    <th>Acciones</th>
+  </tr>
+  <tr *ngFor="let user of users">
+    <td>{{user.name}}</td>
+    <td>{{user.email}}</td>
+    <td>
+      <button [routerLink]="['/users/editar',user._id]">
+        Editar
+      </button>
+      <button type="button" (click)="borrar(user._id!)">
+        Borrar
+      </button>
+
+    </td>
+  </tr>
+
+  </table>
+

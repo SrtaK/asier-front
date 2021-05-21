@@ -53,7 +53,7 @@ export class UserDetailComponent implements OnInit {
             .subscribe( resp => {
               //si se borra llévame al listado
               this.mostrarSnackBAr('Usuario eliminado');
-              this.router.navigateByUrl(`/home`)
+              this.router.navigateByUrl(`/users/registro`)
             })
         }
       }
