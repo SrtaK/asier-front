@@ -7,9 +7,10 @@ import { PictureComponent } from './pages/picture/picture.component';
 import { PictureDetailComponent } from './pages/picture-detail/picture-detail.component';
 import { HomeComponent } from '../home/home.component';
 import { MainPicturesComponent } from './pages/main-pictures/main-pictures.component';
-
 import { LandingComponent } from '../landing/landing.component';
+
 import { ValidarTokenGuard } from '../guards/validar-token.guard';
+import { ValidarAdminnGuard } from '../guards/validar-admin.guard';
 
 const routes: Routes = [
   {
@@ -31,8 +32,8 @@ const routes: Routes = [
   {
     path: 'configurar',
     component: MainPicturesComponent,
-    canActivate: [ValidarTokenGuard],
-    canLoad: [ValidarTokenGuard],
+    canActivate: [ValidarTokenGuard, ValidarAdminnGuard],
+    canLoad: [ValidarTokenGuard, ValidarAdminnGuard],
     children: [
       {
         path:'agregar',

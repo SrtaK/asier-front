@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError, map, tap} from 'rxjs/operators'
+import { catchError, map, mapTo, tap} from 'rxjs/operators'
 import { Observable, of } from 'rxjs'
 
 
@@ -17,6 +17,7 @@ export class AuthService {
   private baseUrl: string = environment.baseUrl; //variable global
 
   private _usuario!:User;
+  private id:string = '';
 
   constructor(private http: HttpClient) { }
 
@@ -93,30 +94,6 @@ export class AuthService {
       );
   }
 
-  //leo la función renew y con ella se los datos del user
-  validarToken(): Observable<boolean>{
-    const url = `${this.baseUrl}/renew`;
-    const headers = new HttpHeaders()
-      .set('x-token', localStorage.getItem('token') || '');//los heqders que quiero mandar, si es nulo string vacio
-
-      return this.http.get<AuthResponse>( url, { headers } )
-      .pipe(
-        map( resp => {
-          //establezco el nuevo token de la respuesta
-          localStorage.setItem('token', resp.token! );
-          this._usuario = {
-            name: resp.name!,
-            uid: resp.uid!,
-            email: resp.email!
-
-          }
-          return resp.ok;
-        }),
-        catchError( err => of(false) )
-      );
-
-  }
-
   //destruye la sesion borrando el token
   logout(){
     localStorage.removeItem('token');
@@ -129,4 +106,65 @@ export class AuthService {
 
   }
 
-}
+    //leo la función renew y con ella se los datos del user
+    validarToken(): Observable<boolean>{
+      const url = `${this.baseUrl}/renew`;
+      const headers = new HttpHeaders()
+        .set('x-token', localStorage.getItem('token') || '');//los heqders que quiero mandar, si es nulo string vacio
+
+        return this.http.get<AuthResponse>( url, { headers } )
+        .pipe(
+          map( resp => {
+            //establezco el nuevo token de la respuesta
+            localStorage.setItem('token', resp.token! );
+            this._usuario = {
+              name: resp.name!,
+              uid: resp.uid!,
+              email: resp.email!
+
+            }
+            return resp.ok;
+          }),
+          catchError( err => of(false) )
+        );
+
+    }
+
+    // validarAdmin(): Observable<boolean>{
+    //   const url = `${this.baseUrl}/renew`;
+    //   const headers = new HttpHeaders()
+    //     .set('x-token', localStorage.getItem('token') || '');//los heqders que quiero mandar, si es nulo string vacio
+
+    //     return this.http.get<AuthResponse>( url, { headers } )
+    //     //aqui recibe el uid, tengo que comprobar si es igual al del admin
+    //     .pipe(
+    //       map( resp => {
+    //         this.isAdmin(resp.uid!);
+    //       })
+    //       mapTo(true),
+    //       catchError(error => {
+    //         console.log(error.error);
+    //         return of(false)
+    //       })
+    //     )
+    //   }
+
+      //obtener del localstorage uid
+      //comprobar si esa uid es la del admin
+      //si es admin respondo true sino false
+      //if uid != tal return false
+
+
+
+
+
+    // isAdmin(id:string): Observable<boolean>{
+    //   if(id != '60a7db39122a552704498795'){
+    //     return of(false);
+    //   }
+    //   return of(true);
+    // }
+
+  }
+
+

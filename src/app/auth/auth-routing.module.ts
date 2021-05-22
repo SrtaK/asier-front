@@ -8,7 +8,9 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { UserDetailComponent } from './pages/user-detail/user-detail.component';
 import { EditarComponent } from './pages/editar/editar.component';
+
 import { ValidarTokenGuard } from '../guards/validar-token.guard';
+import { ValidarAdminnGuard } from '../guards/validar-admin.guard';
 
 
 const routes: Routes = [
@@ -40,8 +42,8 @@ const routes: Routes = [
       {
         path: 'listado',
         component: ListadoComponent,
-        canActivate: [ValidarTokenGuard],
-        canLoad: [ValidarTokenGuard],
+        canActivate: [ValidarTokenGuard, ValidarAdminnGuard],
+        canLoad: [ValidarTokenGuard, ValidarAdminnGuard],
       },
       {
         path: '**',
