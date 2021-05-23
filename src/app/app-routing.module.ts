@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ContactoComponent } from './contacto/components/contacto/contacto.component';
 import { HomeComponent } from './home/home.component';
+import { LandingComponent } from './landing/landing.component';
 import { ErrorComponent } from './shared/error/error.component';
 
 
@@ -24,6 +25,11 @@ const routes: Routes = [
       },{
         path: 'contacto',
         component: ContactoComponent
+      },
+      {
+        path: '',
+        component: LandingComponent
+
       }
 
     ]
