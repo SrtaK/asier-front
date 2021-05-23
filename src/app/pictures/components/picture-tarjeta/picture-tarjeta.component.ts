@@ -40,8 +40,9 @@ constructor(  private pictureService: PicturesService,
           this.pictureService.borrarPicture(this.picture._id!)
             .subscribe( resp => {
               //si se borra llévame al listado
+              console.log(this.picture.serie);
               this.mostrarSnackBAr('Obra eliminada');
-              this.router.navigateByUrl(`/listado/${this.picture.serie}`)
+              this.router.navigateByUrl(`/pictures/listado/${this.picture.serie}`)
 
             })
         }

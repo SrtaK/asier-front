@@ -1,0 +1,18 @@
+.user-container
+{
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  height: 100%;
+}
+
+mat-list{
+  margin-bottom: 5rem;
+  
+}
+
+.buttons
+{
+  margin-top: 1rem;
+}

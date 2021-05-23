@@ -50,7 +50,7 @@ export class AgregarComponent implements OnInit {
 
   }
 
-
+  serie!: string;
   preview!: string;
   percentDone: any = 0;
 
@@ -137,8 +137,9 @@ export class AgregarComponent implements OnInit {
           case HttpEventType.Response:
             console.log('User successfully created!', event.body);
             this.percentDone = false;
+            this.serie = event.body.picture.serie;
             this.mostrarSnackBAr('Obra guardada');
-            this.router.navigateByUrl(`/pictures/listado/${this.normalizarSerie( this.miFormulario.value.serie)}`)
+            this.router.navigateByUrl(`/pictures/listado/${this.serie}`)
         }
       })
     }

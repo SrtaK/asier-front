@@ -1,22 +1,26 @@
+<div class="user-container">
 <span class="login100-form-title p-b-49">
   Tus datos
 </span>
-<mat-list class="m-6">
-  <mat-list-item>Nombre: {{user.name}}</mat-list-item>
+<mat-list>
+  <mat-list-item><strong>Nombre:</strong>{{user.name}}</mat-list-item>
   <mat-divider></mat-divider>
-  <mat-list-item>Email: {{user.email}}</mat-list-item>
+  <br>
+  <mat-list-item><strong>Email:</strong> {{user.email}}</mat-list-item>
+  <mat-divider></mat-divider>
 </mat-list>
 
+<div class="buttons">
   <div class="container-login100-form-btn">
-      <div class="wrap-login100-form-btn">
-          <div class="login100-form-bgbtn"></div>
-          <button class="login100-form-btn"
-                  [routerLink]="['/users/editar',user._id]">
-                  Editar
-          </button>
-      </div>
+    <div class="wrap-login100-form-btn">
+        <div class="login100-form-bgbtn"></div>
+        <button class="login100-form-btn"
+                [routerLink]="['/users/editar',user._id]">
+                Editar
+        </button>
+    </div>
   </div>
-<br>
+  <br>
   <div class="container-login100-form-btn p-2" >
     <div class="wrap-login100-form-btn">
         <div class="login100-form-bgbtn"></div>
@@ -24,8 +28,9 @@
                 (click)="borrar()">
                 Borrar
         </button>
-
     </div>
+  </div>
+</div>
 
 </div>
 
