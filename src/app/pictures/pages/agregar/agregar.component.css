@@ -11,10 +11,6 @@ mat-list{
   margin-bottom: 2rem;
 }
 
-.buttons
-{
-  margin-top: 1rem;
-}
 
 .titulo{
   text-align: center;
@@ -26,4 +22,71 @@ form{
 
 .image{
   margin: 2rem 0 ;
+}
+
+/**********File Inputs**********/
+.container-input {
+  text-align: center;
+  border-radius: 6px;
+  width: 50%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.inputfile + label {
+
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
+  padding: 0.625rem 1.25rem;
+}
+
+.inputfile + label svg {
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  fill: currentColor;
+  margin-top: -0.25em;
+  margin-right: 0.25em;
+}
+
+.iborrainputfile {
+font-size:16px;
+font-weight:normal;
+margin-bottom: 1rem;;
+}
+
+
+/* style 2 */
+
+.inputfile-2 + label {
+  color: #006064;
+}
+
+.inputfile-2:focus + label,
+.inputfile-2.has-focus + label,
+.inputfile-2 + label:hover {
+  color: #006064;
+}
+
+
+.mat-icon {
+  vertical-align: middle;
+}
+
+.justificar{
+  justify-content: space-around;
 }
