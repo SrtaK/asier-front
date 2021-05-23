@@ -9,7 +9,7 @@
         <div class="titulo">
           <h1>
             {{(picture._id)? 'Editar Obra' : 'Nueva obra'}}
-              <small>{{picture.nombre}}</small>
+              <small>{{picture.nombre | uppercase}}</small>
             </h1>
         </div>
         <mat-divider></mat-divider>

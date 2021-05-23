@@ -12,7 +12,7 @@
 <!-- <img mat-card-image [src]="picture | imagen"> -->
   <div class="info">
     <mat-card-content>
-      <h1>{{picture.nombre}}</h1>
+      <h1>{{picture.nombre | uppercase}}</h1>
       <h3>{{picture.annio}}</h3>
       <p>
         <strong>Técnica:</strong> {{picture.tecnica}}

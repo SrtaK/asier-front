@@ -31,6 +31,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   src: url('./assets/fonts/poppins/Poppins-SemiBold.ttf');
 }
 
+@font-face {
+  font-family: Myfont-Regular;
+  src: url('./assets/fonts/Myfont-Regular.otf');
+}
 
 /*//////////////////////////////////////////////////////////////////
 [ RESTYLE TAG ]*/
@@ -71,6 +75,12 @@ a:hover {
 /*---------------------------------------------*/
 h1,h2,h3,h4,h5,h6 {
     margin: 0px;
+}
+
+h1{
+  font-family: 'Myfont-Regular' !important;
+  font-size: 200px;
+
 }
 
 p {
