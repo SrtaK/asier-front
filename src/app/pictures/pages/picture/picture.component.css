@@ -1,0 +1,36 @@
+mat-card{
+  display: flex;
+  flex-direction: column;
+}
+
+.info{
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+mat-card-actions{
+  display: flex ;
+  flex-direction: column;
+  justify-content: flex-end;
+
+
+
+}
+
+button{
+  width: 6rem;
+}
+
+.buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 1rem;
+}
+
+button{
+  width: 6rem;
+}

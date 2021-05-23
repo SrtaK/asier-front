@@ -6,6 +6,9 @@ import { Location } from '@angular/common'
 
 import { Picture } from '../../interfaces/pictures.interface';
 import { PicturesService } from '../../services/pictures.service';
+import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ConfirmarComponent } from '../../components/confirmar/confirmar.component';
 
 
 
@@ -20,6 +23,8 @@ export class PictureComponent implements OnInit {
   picture!: Picture;
 
   constructor(  private activatedRoute: ActivatedRoute,
+                public dialog: MatDialog,
+                private snackBar: MatSnackBar,
                 private picturesService: PicturesService,
                 private router: Router,
                 private location: Location) { }
@@ -35,6 +40,36 @@ export class PictureComponent implements OnInit {
 
   back(): void {
     this.location.back()
+  }
+  borrarPicture(){
+
+    //con data envio la información al componente hijo
+    //... para no modificar el objeto heroe
+    const dialog = this.dialog.open(ConfirmarComponent,{
+      width: '250px',
+      data: {...this.picture}
+    });
+
+    dialog.afterClosed().subscribe(
+      (result) => {
+        if(result){
+          this.picturesService.borrarPicture(this.picture._id!)
+            .subscribe( resp => {
+              //si se borra llévame al listado
+              console.log(this.picture.serie);
+              this.mostrarSnackBAr('Obra eliminada');
+              this.router.navigateByUrl(`/pictures/listado/${this.picture.serie}`)
+
+            })
+        }
+      }
+    )
+  }
+
+  mostrarSnackBAr(mensaje: string){
+    this.snackBar.open(mensaje, 'ok!', {
+      duration: 2500
+    })
   }
 
 
