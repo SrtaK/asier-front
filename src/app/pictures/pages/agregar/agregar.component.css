@@ -15,3 +15,15 @@ mat-list{
 {
   margin-top: 1rem;
 }
+
+.titulo{
+  text-align: center;
+}
+
+form{
+ margin-top: 2rem;
+}
+
+.image{
+  margin: 2rem 0 ;
+}

@@ -1,15 +1,17 @@
 
-  <h1>
-    {{(picture._id)? 'Editar Obra' : 'Nueva obra'}}
-      <small>{{picture.nombre}}</small>
-    </h1>
 
     <div  fxLayout="row"
           fxLayout.xs="column"
           fxLayoutGap="40px">
 
-      <div fxFlex="50" fxLayout="column">
-
+      <div fxLayout="column">
+        <div class="titulo">
+          <h1>
+            {{(picture._id)? 'Editar Obra' : 'Nueva obra'}}
+              <small>{{picture.nombre}}</small>
+            </h1>
+        </div>
+        <mat-divider></mat-divider>
 
         <form [formGroup]="miFormulario" (ngSubmit)="save()">
           <!-- Progress Bar -->
@@ -19,62 +21,67 @@
             </div>
           </div>
 
-          <!-- Image Preview -->
-          <div class="form-group">
-            <div class="preview" *ngIf="preview && preview !== null">
-              <img [src]="preview" [alt]="miFormulario.value.nombre">
-            </div>
-          </div>
-
-          <!-- File Input -->
-          <div class="form-group">
-            <input type="file" (change)="uploadFile($event)">
-          </div>
-
           <!-- nombre -->
-          <div class="form-group input-group-lg">
-            <input class="form-control" placeholder="nombre" formControlName="nombre">
+          <div class="form-group input-group-lg wrap-input100 m-b-23">
+            <input class="form-control input100" placeholder="Nombre de la obra" formControlName="nombre">
+            <span class="focus-input100"></span>
+
           </div>
 
           <!-- annio -->
-          <div class="form-group input-group-lg">
-            <input class="form-control" placeholder="annio" formControlName="annio">
+          <div class="form-group input-group-lg wrap-input100 m-b-23">
+            <input class="form-control input100" placeholder="Año de creación" formControlName="annio">
+            <span class="focus-input100"></span>
           </div>
 
-          <!-- serie -->
-          <div class="form-group input-group-lg">
-            <input class="form-control" placeholder="serie" formControlName="serie">
+          <!-- serie poner deplegable -->
+          <div class="form-group input-group-lg wrap-input100 m-b-23">
+            <input class="form-control input100" placeholder="Serie a la que pertenece" formControlName="serie">
+            <span class="focus-input100"></span>
           </div>
 
           <!-- medidas -->
-          <div class="form-group input-group-lg">
-            <input class="form-control" placeholder="medidas" formControlName="medidas">
+          <div class="form-group input-group-lg wrap-input100 m-b-23">
+            <input class="form-control input100" placeholder="Medidas" formControlName="medidas">
+            <span class="focus-input100"></span>
           </div>
 
           <!-- tecnica -->
-          <div class="form-group input-group-lg">
-            <input class="form-control" placeholder="tecnica" formControlName="tecnica">
+          <div class="form-group input-group-lg wrap-input100 m-b-23">
+            <input class="form-control input100" placeholder="Ténica" formControlName="tecnica">
+            <span class="focus-input100"></span>
           </div>
 
           <!-- soporte -->
-          <div class="form-group input-group-lg">
-            <input class="form-control" placeholder="soporte" formControlName="soporte">
+          <div class="form-group input-group-lg wrap-input100 m-b-23">
+            <input class="form-control input100" placeholder="Soporte" formControlName="soporte">
+            <span class="focus-input100"></span>
           </div>
 
-        <!-- disponible -->
-        <div class="form-group input-group-lg">
-          <input class="form-control" placeholder="disponible" formControlName="disponible">
+        <!-- disponible poner unos botoncitos o un desplegable-->
+        <div class="form-group input-group-lg wrap-input100 m-b-23 ">
+          <input class="form-control input100" placeholder="¿Está disponible?" formControlName="disponible">
+          <span class="focus-input100"></span>
         </div>
 
-        <!-- precio -->
-        <div class="form-group input-group-lg">
-          <input class="form-control" placeholder="precio" formControlName="precio">
+        <!-- precio poner que es un numero-->
+        <div class="form-group input-group-lg wrap-input100 m-b-23">
+          <input class="form-control input100" placeholder="Ponle un precio" formControlName="precio">
+          <span class="focus-input100"></span>
         </div>
+
+        <!-- File Input -->
+        <div class="form-group input-group-lg image">
+          <input type="file" (change)="uploadFile($event)">
+        </div>
+
 
           <!-- Submit -->
           <div class="form-group">
-            <button type="submit" class="btn btn-danger btn-block btn-lg">Añadir obra</button>
+            <button mat-raised-button color="primary" type="submit" class="btn btn-danger btn-block btn-lg">Añadir obra</button>
           </div>
+
+
         </form>
 
 
