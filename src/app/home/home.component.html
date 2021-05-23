@@ -73,27 +73,34 @@
             sino que salga el boton del login y el de registro
             -->
     <mat-menu #menu="matMenu">
-      <button mat-menu-item
+      <button  *ngIf="!user" mat-menu-item
               routerLink="/users/login">
         <mat-icon>transfer_within_a_station</mat-icon>
         <span >Login</span>
       </button>
-      <button mat-menu-item
+      <button *ngIf="!user"
+              mat-menu-item
               routerLink="/users/registro">
         <mat-icon>person_add</mat-icon>
         <span >Registro</span>
       </button>
-
       <div *ngIf="user">
       <button mat-menu-item
               routerLink="/users/usuario/{{user._id}}">
         <mat-icon>mood</mat-icon>
         <span >Mis datos</span>
       </button>
+
       <button mat-menu-item
               routerLink="/users/listado">
       <mat-icon>group</mat-icon>
         <span>Listado usuarios</span>
+      </button>
+
+      <button  mat-menu-item
+              [routerLink]="['/pictures/configurar/agregar']">
+        <mat-icon>palette</mat-icon>
+        <span>Añadir</span>
       </button>
       <button mat-menu-item>
         <mat-icon>shopping_basket</mat-icon>
@@ -105,6 +112,7 @@
         <span>Salir</span>
       </button>
     </div>
+
     </mat-menu>
 
   </mat-toolbar>
@@ -115,5 +123,6 @@
 
     <router-outlet></router-outlet>
   </div>
-
+<app-footer></app-footer>
 </mat-sidenav-container>
+

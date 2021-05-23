@@ -1,11 +1,9 @@
-
+  <div class="limiter">
+    <div class="container-login100" style="background-image: url('../../../assets/img/listado.jpg');">
+      <h1>Nosotros los pueblos</h1>
+    </div>
+  </div>
 <mat-card class="my-alternate-theme">
-  <p>if administador</p>
-  <button mat-raised-button
-          color="primary"
-          [routerLink]="['/pictures/configurar/agregar']"
-          >
-    Añadir</button>
 </mat-card>
 <div *ngFor="let picture of pictures">
   <app-picture-tarjeta [picture] = "picture"></app-picture-tarjeta>
