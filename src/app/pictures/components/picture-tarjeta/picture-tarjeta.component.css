@@ -1,3 +1,5 @@
+
+
 .buttons{
   display: flex;
   flex-direction: row;
@@ -8,3 +10,62 @@
 button{
   width: 6rem;
 }
+
+
+
+@media(min-width: 1024px){
+  .info{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+}
+
+
+/* @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) { */
+@media (min-width: 768px){
+  img{
+    width:50%;
+  }
+
+  mat-card{
+    display: flex;
+  }
+
+  .info{
+    margin: 5rem;
+  }
+
+}
+
+
+
+/* Tablet - movil */
+@media (min-width: 320px) and (max-width: 768px){
+  .buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 1rem;
+  }
+
+  button{
+    width: 6rem;
+  }
+
+
+  .info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  mat-card-actions{
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end;
+    padding: 0;
+    margin-bottom: 0;
+  }
+}
+

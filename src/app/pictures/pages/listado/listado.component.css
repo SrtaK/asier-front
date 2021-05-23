@@ -5,3 +5,7 @@
 h1{
   color: white;
 }
+
+mat-card-image{
+  width: 32%;
+}
