@@ -15,6 +15,7 @@ import { ErrorComponent } from './shared/error/error.component';
 import { NavComponent } from './shared/nav/nav.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { LandingComponent } from './landing/landing.component';
+import { ContactoComponent } from './contacto/components/contacto/contacto.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { LandingComponent } from './landing/landing.component';
     NavComponent,
     FooterComponent,
     LandingComponent,
+    ContactoComponent,
   ],
   imports: [
     AppRoutingModule,

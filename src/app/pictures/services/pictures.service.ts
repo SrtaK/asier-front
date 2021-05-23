@@ -42,32 +42,32 @@ export class PicturesService {
   // }
 
 
-    agregarPicture(
-      nombre: string,
-      imagen: File,
-      annio: string,
-      serie: string,
-      soporte: string,
-      medidas: string,
-      tecnica: string,
-      disponible: boolean,
-      precio: string
-      ){
-        var formData: any = new FormData();
-        formData.append("nombre", nombre);
-        formData.append("imagen", imagen);
-        formData.append("annio", annio);
-        formData.append("serie", serie);
-        formData.append("tecnica", tecnica);
-        formData.append("medidas", medidas);
-        formData.append("soporte", soporte);
-        formData.append("disponible", disponible);
-        formData.append("precio", precio);
+  agregarPicture(
+    nombre: string,
+    imagen: File,
+    annio: string,
+    serie: string,
+    soporte: string,
+    medidas: string,
+    tecnica: string,
+    disponible: boolean,
+    precio: string
+    ){
+      var formData: any = new FormData();
+      formData.append("nombre", nombre);
+      formData.append("imagen", imagen);
+      formData.append("annio", annio);
+      formData.append("serie", serie);
+      formData.append("tecnica", tecnica);
+      formData.append("medidas", medidas);
+      formData.append("soporte", soporte);
+      formData.append("disponible", disponible);
+      formData.append("precio", precio);
 
-        return this.http.post<PictureResp>(`${this.baseUrl}/picture/save`, formData, {
-          reportProgress: true,
-          observe: 'events'
-        })
+      return this.http.post<PictureResp>(`${this.baseUrl}/picture/save`, formData, {
+        reportProgress: true,
+        observe: 'events'
+      })
   }
 
   actualizarPicture(picture:Picture){

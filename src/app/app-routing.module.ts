@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 
 import { RouterModule, Routes } from '@angular/router';
+import { ContactoComponent } from './contacto/components/contacto/contacto.component';
 import { HomeComponent } from './home/home.component';
 import { ErrorComponent } from './shared/error/error.component';
+
 
 const routes: Routes = [
   //1.Definimos las rutas
@@ -19,7 +21,10 @@ const routes: Routes = [
         path: 'users',
         loadChildren: () => import('./auth/auth.module')
                               .then( modulos => modulos.AuthModule)
-      },
+      },{
+        path: 'contacto',
+        component: ContactoComponent
+      }
 
     ]
     },

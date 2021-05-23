@@ -1,0 +1,55 @@
+<div class="limiter">
+  <div class="container-login100" style="background-image: url('../../../assets/img/contacto.jpg');">
+      <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+        <form class="login100-form"
+        autocomplete="off"
+        [formGroup]="formularioContacto"
+        (ngSubmit)="enviarEmail()">
+
+    <span class="login100-form-title p-b-49">
+    Contacto
+    </span>
+
+    <div class="wrap-input100 m-b-23">
+        <input class="input100"
+              type="email"
+              formControlName="email"
+              placeholder="Introduce tu email">
+        <span class="focus-input100"></span>
+    </div>
+
+    <div class="wrap-input100 m-b-23">
+      <input class="input100"
+            type="text"
+            formControlName="subject"
+            placeholder="¿Sobre qué necesitas informacion?">
+      <span class="focus-input100"></span>
+    </div>
+
+    <div class="wrap-input100">
+        <input class="input100"
+              type="text"
+              formControlName="texto"
+              placeholder="Cuéntame...">
+        <span class="focus-input100"></span>
+    </div>
+
+    <div class="text-right p-t-8 p-b-31"></div>
+
+    <div class="container-login100-form-btn">
+        <div class="wrap-login100-form-btn">
+            <div class="login100-form-bgbtn"></div>
+            <button type="submit"
+            class="login100-form-btn"
+            [disabled]="formularioContacto.invalid">
+                Enviar
+            </button>
+        </div>
+    </div>
+  </form>
+
+
+      </div>
+  </div>
+</div>
+
