@@ -18,7 +18,7 @@ interface ReqPicture {
   tecnica:    string;
   soporte:    string;
   disponible: boolean;
-  precio:     number;
+  precio:     string;
   __v:        number;
 }
 
@@ -32,7 +32,7 @@ export interface Picture {
   tecnica:    string;
   soporte:    string;
   disponible: boolean;
-  precio?:     number;
+  precio:     string;
   __v?:        number;
 }
 

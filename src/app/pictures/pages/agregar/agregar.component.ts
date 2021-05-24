@@ -46,7 +46,7 @@ export class AgregarComponent implements OnInit {
     tecnica:'',
     soporte:'',
     disponible:false,
-    precio: 0
+    precio: ''
 
   }
 
@@ -55,15 +55,16 @@ export class AgregarComponent implements OnInit {
   percentDone: any = 0;
 
   miFormulario = this.fb.group({
-    nombre: ['', [Validators.required, Validators.minLength(5)]],
-    annio:['', [Validators.required, Validators.minLength(4)]],
-    imagen:[ null, Validators.required],
-    serie:[ null, Validators.required],
-    medidas: ['', [Validators.required]],
-    tecnica: ['', [Validators.required]],
-    soporte: ['', [Validators.required]],
-    disponible: ['', [Validators.required]],
-    precio: ['', [Validators.required]],
+    nombre: [''],
+    annio:[''],
+    imagen:[ null],
+    serie:[ null],
+    medidas: [''],
+    tecnica: [''],
+    soporte: [''],
+    disponible: [false],
+    precio: ['']
+
   });
 
 
@@ -94,6 +95,7 @@ export class AgregarComponent implements OnInit {
 
   // Image Preview
   uploadFile(event:any) {
+console.log("eventoe" + event.target!.files[0])
     const file = event.target!.files[0];
     this.miFormulario.patchValue({
       imagen: file
@@ -117,15 +119,17 @@ export class AgregarComponent implements OnInit {
       this.miFormulario.value.imagen,
       this.miFormulario.value.annio,
       this.miFormulario.value.serie,
-      this.miFormulario.value.tecnica,
       this.miFormulario.value.medidas,
+      this.miFormulario.value.tecnica,
       this.miFormulario.value.soporte,
       this.miFormulario.value.disponible,
-      this.miFormulario.value.precio)
+      this.miFormulario.value.precio,
+)
+
       .subscribe((event: HttpEvent<any>) => {
         switch (event.type) {
           case HttpEventType.Sent:
-            console.log('Request has been made!');
+            console.log('Request has been made!' + this.miFormulario.value.imagen);
             break;
           case HttpEventType.ResponseHeader:
             console.log('Response header has been received!');

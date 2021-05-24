@@ -25,7 +25,7 @@ form{
 }
 
 /**********File Inputs**********/
-.container-input {
+/* .container-input {
   text-align: center;
   border-radius: 6px;
   width: 50%;
@@ -80,7 +80,7 @@ margin-bottom: 1rem;;
 .inputfile-2.has-focus + label,
 .inputfile-2 + label:hover {
   color: #006064;
-}
+} */
 
 
 .mat-icon {

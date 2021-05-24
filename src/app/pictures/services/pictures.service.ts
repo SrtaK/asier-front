@@ -55,11 +55,11 @@ export class PicturesService {
     ){
       var formData: any = new FormData();
       formData.append("nombre", nombre);
-      formData.append("imagen", imagen);
       formData.append("annio", annio);
+      formData.append("imagen", imagen);
       formData.append("serie", serie);
-      formData.append("tecnica", tecnica);
       formData.append("medidas", medidas);
+      formData.append("tecnica", tecnica);
       formData.append("soporte", soporte);
       formData.append("disponible", disponible);
       formData.append("precio", precio);
