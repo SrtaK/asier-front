@@ -7,7 +7,6 @@ import { switchMap } from 'rxjs/operators';
 
 import { Picture, Serie } from '../../interfaces/pictures.interface';
 import { PicturesService } from '../../services/pictures.service';
-import { ImagenPipe } from '../../pipes/imagen.pipe';
 import { HttpEvent, HttpEventType } from '@angular/common/http';
 
 @Component({
@@ -55,14 +54,14 @@ export class AgregarComponent implements OnInit {
   percentDone: any = 0;
 
   miFormulario = this.fb.group({
-    nombre: [''],
-    annio:[''],
+    nombre: ['', [Validators.required, Validators.minLength(2)]],
+    annio:['', [Validators.required, Validators.minLength(2)]],
     imagen:[ null],
     serie:[ null],
-    medidas: [''],
-    tecnica: [''],
-    soporte: [''],
-    disponible: [false],
+    medidas: ['', [Validators.required, Validators.minLength(2)]],
+    tecnica: ['', [Validators.required, Validators.minLength(2)]],
+    soporte: ['', [Validators.required, Validators.minLength(2)]],
+    disponible: [false, [Validators.required]],
     precio: ['']
 
   });
@@ -90,6 +89,12 @@ export class AgregarComponent implements OnInit {
       .subscribe( res => this.picture = res.picture )
     }
 
+
+  }
+
+  esValido(campo:string){
+    return this.miFormulario.controls[campo].errors 
+        && this.miFormulario.controls[campo].touched
 
   }
 
@@ -124,43 +129,30 @@ console.log("eventoe" + event.target!.files[0])
       this.miFormulario.value.soporte,
       this.miFormulario.value.disponible,
       this.miFormulario.value.precio,
-)
+    )
 
-      .subscribe((event: HttpEvent<any>) => {
-        switch (event.type) {
-          case HttpEventType.Sent:
-            console.log('Request has been made!' + this.miFormulario.value.imagen);
-            break;
-          case HttpEventType.ResponseHeader:
-            console.log('Response header has been received!');
-            break;
-          case HttpEventType.UploadProgress:
-            this.percentDone = Math.round(event.loaded / event.total! * 100);
-            console.log(`Uploaded! ${this.percentDone}%`);
-            break;
-          case HttpEventType.Response:
-            console.log('User successfully created!', event.body);
-            this.percentDone = false;
-            this.serie = event.body.picture.serie;
-            this.mostrarSnackBAr('Obra guardada');
-            this.router.navigateByUrl(`/pictures/listado/${this.serie}`)
-        }
-      })
-    }
-
-  actualizar(){
-    if( this.picture.nombre.trim().length == 0){
-      return
-    }
-
-    this.pictureService.actualizarPicture(this.picture)
-    .subscribe( resp => {
-      console.log('Actualizando', resp);
-      this.mostrarSnackBAr('Obra actualizada');
-      this.router.navigateByUrl(`/pictures/listado/${this.normalizarSerie(this.picture)}`)
-
+    .subscribe((event: HttpEvent<any>) => {
+      switch (event.type) {
+        case HttpEventType.Sent:
+          console.log('Request has been made!' + this.miFormulario.value.imagen);
+          break;
+        case HttpEventType.ResponseHeader:
+          console.log('Response header has been received!');
+          break;
+        case HttpEventType.UploadProgress:
+          this.percentDone = Math.round(event.loaded / event.total! * 100);
+          console.log(`Uploaded! ${this.percentDone}%`);
+          break;
+        case HttpEventType.Response:
+          console.log('User successfully created!', event.body);
+          this.percentDone = false;
+          this.serie = event.body.picture.serie;
+          this.mostrarSnackBAr('Obra guardada');
+          this.router.navigateByUrl(`/pictures/listado/${this.serie}`)
+      }
     })
   }
+
 
   mostrarSnackBAr(mensaje: string){
     this.snackBar.open(mensaje, 'ok', {

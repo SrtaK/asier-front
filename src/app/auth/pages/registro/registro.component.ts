@@ -26,6 +26,8 @@ export class RegistroComponent implements OnInit{
     password:['', [Validators.required, Validators.minLength(6)]]
   });
 
+  
+
   constructor(private fb: FormBuilder,
               private router: Router,
               private activatedRoute: ActivatedRoute,
@@ -43,7 +45,19 @@ ngOnInit(): void {
   // }
 }
 
+  esValido(campo:string){
+    return this.formularioRegister.controls[campo].errors 
+        && this.formularioRegister.controls[campo].touched
+
+  }
+
   register(){
+    
+    if(this.formularioRegister.invalid){
+      this.formularioRegister.markAllAsTouched();
+      return
+    }
+
     const { name, email, password } = this.formularioRegister.value;
     this.authService.registro(name, email, password)
       .subscribe(ok =>{

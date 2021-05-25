@@ -8,6 +8,8 @@
   </span>
 
   <div class="wrap-input100 m-b-23">
+    <span *ngIf="esValido('email')" 
+    class="form-text text-danger">Debe tener el formato example@mail.com</span>          
       <input class="input100"
             type="email"
             formControlName="email"
@@ -16,7 +18,8 @@
   </div>
 
   <div class="wrap-input100">
-      <input class="input100"
+    <span *ngIf="esValido('password')" class="form-text text-danger">Debe tener al menos 6 caracteres</span>
+    <input class="input100"
             type="password"
             formControlName="password"
             placeholder="Tu contraseña">

@@ -1,0 +1,11 @@
+.text-danger{
+  color: rgba(199, 11, 11, 0.932);
+  position:absolute;
+  
+}
+
+.wrap-input100{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

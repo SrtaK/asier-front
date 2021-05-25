@@ -30,26 +30,34 @@ export class LoginComponent{
     private snackBar: MatSnackBar,
     ) { }
 
-    login(){
-      //console.log(this.miFormulario.value)
-      const { email, password } = this.miFormulario.value;
+  esValido(campo:string){
+    return this.miFormulario.controls[campo].errors 
+        && this.miFormulario.controls[campo].touched
 
-      this.authService.login(email, password)
-        .subscribe(ok =>{
-          //si es correcto navega
-          if(ok === true){
-            this.mostrarSnackBAr('Te has logueado con éxito');
-            this.router.navigateByUrl(`/users/usuario/${this.authService.usuario.uid}`);
-            this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+  }
 
-          }else{
-            //sino es correcto manejo el error
-            Swal.fire('Error', ok, 'error');
-          }
-        })
+  login(){
 
+    if(this.miFormulario.invalid){
+      this.miFormulario.markAllAsTouched();
+      return
+    }
+    //console.log(this.miFormulario.value)
+    const { email, password } = this.miFormulario.value;
 
+    this.authService.login(email, password)
+      .subscribe(ok =>{
+        //si es correcto navega
+        if(ok === true){
+          this.mostrarSnackBAr('Te has logueado con éxito');
+          this.router.navigateByUrl(`/users/usuario/${this.authService.usuario.uid}`);
+          this.router.routeReuseStrategy.shouldReuseRoute = () => false;
 
+        }else{
+          //sino es correcto manejo el error
+          Swal.fire('Error', ok, 'error');
+        }
+      })
     }
 
     mostrarSnackBAr(mensaje: string){

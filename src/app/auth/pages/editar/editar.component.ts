@@ -44,7 +44,18 @@ export class EditarComponent implements OnInit {
 
   }
 
+  esValido(campo:string){
+    return this.formularioEditar.controls[campo].errors 
+        && this.formularioEditar.controls[campo].touched
+
+  }
+
   actualizar(){
+    
+    if(this.formularioEditar.invalid){
+      this.formularioEditar.markAllAsTouched();
+      return
+    }
     const userForm = this.formularioEditar.value;
     this.authService.actualizarUser(userForm, this.user._id!)
     .subscribe( resp => {

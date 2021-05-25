@@ -7,7 +7,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { PicturesRoutingModule } from './pictures-routing.module';
 
-import { ImagenPipe } from './pipes/imagen.pipe';
 import { UrlPipe } from './pipes/url.pipe';
 
 import { AgregarComponent } from './pages/agregar/agregar.component';
@@ -25,7 +24,6 @@ import { EditarComponent } from './pages/editar/editar.component';
   declarations: [
     AgregarComponent,
     ConfirmarComponent,
-    ImagenPipe,
     ListadoComponent,
     MainPicturesComponent,
     PictureDetailComponent,

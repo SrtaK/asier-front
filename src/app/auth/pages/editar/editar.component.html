@@ -9,7 +9,8 @@
   </span>
   <p style="text-align:center"><strong>¿Quieres actualizar alguno de tus datos?</strong></p>
   <div class="wrap-input100 m-b-23">
-    <span class="form-text text-danger">Debe tener al menos 2 caracteres</span>
+    <span *ngIf="esValido('name')"
+    class="form-text text-danger">Debe tener al menos 2 caracteres</span>
     <input class="input100"
           type="text"
           formControlName="name"
@@ -18,8 +19,8 @@
   </div>
 
   <div class="wrap-input100 m-b-23">
-    <span class="form-text text-danger">Debe tener el formato example@mail.com</span>
-    <input class="input100"
+    <span *ngIf="esValido('email')" 
+    class="form-text text-danger">Debe tener el formato example@mail.com</span>          <input class="input100"
              type="email"
              formControlName="email"
              placeholder="{{user.email}}">
@@ -27,8 +28,8 @@
   </div>
 
   <div class="wrap-input100">
-    <span class="form-text text-danger">Debe tener al menos 6 caracteres</span>
-      <input class="input100"
+    <span *ngIf="esValido('password')" class="form-text text-danger">Debe tener al menos 6 caracteres</span>
+    <input class="input100"
              type="password"
              formControlName="password"
              placeholder="Contraseña (mínimo 6 caracteres)">
