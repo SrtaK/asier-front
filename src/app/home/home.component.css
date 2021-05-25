@@ -6,3 +6,8 @@ mat-toolbar{
   background-color:transparent;
 }
 
+span{
+  font-family: 'MyFont' !important;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+}

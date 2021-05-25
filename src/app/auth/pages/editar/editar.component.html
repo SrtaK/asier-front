@@ -4,10 +4,12 @@
       (ngSubmit)="actualizar()">
 
   <span class="login100-form-title p-b-49">
-  Edita tus datos, {{user.name}}
+  <h1>Hola,{{user.name}}</h1>
+  <h2 ></h2>
   </span>
-
+  <p style="text-align:center"><strong>¿Quieres actualizar alguno de tus datos?</strong></p>
   <div class="wrap-input100 m-b-23">
+    <span class="form-text text-danger">Debe tener al menos 2 caracteres</span>
     <input class="input100"
           type="text"
           formControlName="name"
@@ -16,7 +18,8 @@
   </div>
 
   <div class="wrap-input100 m-b-23">
-      <input class="input100"
+    <span class="form-text text-danger">Debe tener el formato example@mail.com</span>
+    <input class="input100"
              type="email"
              formControlName="email"
              placeholder="{{user.email}}">
@@ -24,6 +27,7 @@
   </div>
 
   <div class="wrap-input100">
+    <span class="form-text text-danger">Debe tener al menos 6 caracteres</span>
       <input class="input100"
              type="password"
              formControlName="password"
@@ -31,7 +35,7 @@
       <span class="focus-input100"></span>
   </div>
 
-  <div class="text-right p-t-8 p-b-31"></div>
+  <div class="text-right p-t-8 p-b-50"></div>
 
   <div class="container-login100-form-btn">
       <div class="wrap-login100-form-btn">

@@ -40,6 +40,7 @@ export class LoginComponent{
           if(ok === true){
             this.mostrarSnackBAr('Te has logueado con éxito');
             this.router.navigateByUrl(`/users/usuario/${this.authService.usuario.uid}`);
+            this.router.routeReuseStrategy.shouldReuseRoute = () => false;
 
           }else{
             //sino es correcto manejo el error

@@ -1,9 +1,11 @@
 .text-danger{
-  text-align: center;
-  color: #006064;
+  color: rgba(199, 11, 11, 0.932);
+  position:absolute;
+  
 }
 
-h1{
-  text-shadow: 8px 5px 3px #000000;
-  letter-spacing: -9px;
+.wrap-input100{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

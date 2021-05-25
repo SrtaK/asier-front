@@ -47,6 +47,7 @@ export class HomeComponent implements OnInit {
     this.router.navigateByUrl('/users/login');
     this.authService.logout();
     console.log('done!');
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
 
 
   }

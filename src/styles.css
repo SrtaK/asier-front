@@ -12,26 +12,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 [ FONT ]*/
 
 @font-face {
-  font-family: Poppins-Regular;
-  src: url('./assets/fonts/poppins/Poppins-Regular.ttf');
-}
-
-@font-face {
-  font-family: Poppins-Medium;
-  src: url('./assets/fonts/poppins/Poppins-Medium.ttf');
-}
-
-@font-face {
-  font-family: Poppins-Bold;
-  src: url('./assets/fonts/poppins/Poppins-Medium.ttf');
-}
-
-@font-face {
-  font-family: Poppins-SemiBold;
-  src: url('./assets/fonts/poppins/Poppins-SemiBold.ttf');
-}
-
-@font-face {
   font-family: Myfont-Regular;
   src: url('./assets/fonts/Myfont-Regular.otf');
 }
@@ -42,17 +22,17 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    font-family: Poppins-Bold;
+    font-family: Roboto;
 }
 
 body, html {
     height: 100%;
-    font-family: Poppins-Regular, sans-serif;
+    font-family: Roboto;
 }
 
 /*---------------------------------------------*/
 a {
-    font-family: Poppins-Regular;
+    font-family: Roboto;
     font-size: 14px;
     line-height: 1.7;
     color: #666666;
@@ -69,7 +49,7 @@ a:focus {
 
 a:hover {
     text-decoration: none;
-  color: #a64bf4;
+  color: #006064;
 }
 
 /*---------------------------------------------*/
@@ -79,17 +59,19 @@ h1,h2,h3,h4,h5,h6 {
 
 h1{
   font-family: 'Myfont-Regular' !important;
-  font-size: 100px !important;
-  color: #006064;
-
+  font-size: 12vw !important;
+  color: black;
+  letter-spacing: -0.6rem !important;
+  text-shadow: 2px 4px 4px #939c9dd4 !important;
 }
 
 p {
     /* font-family: Poppins-Regular; */
-    font-size: 14px;
+    font-size: 1rem;
     line-height: 1.7;
     color: #666666;
     margin: 0px;
+    font-family: Roboto;
 }
 
 ul, li {
@@ -117,7 +99,7 @@ textarea:focus, input:focus {
 button {
     outline: none !important;
     border: none;
-    background: transparent;
+    background: transparent; 
 }
 
 button:hover {
@@ -127,14 +109,14 @@ button:hover {
 /*//////////////////////////////////////////////////////////////////
 [ Utility ]*/
 .txt1 {
-  font-family: Poppins-Regular;
+  font-family: Roboto;
   font-size: 14px;
   line-height: 1.5;
   color: #666666;
 }
 
 .txt2 {
-  font-family: Poppins-Regular;
+  font-family: Roboto;
   font-size: 14px;
   line-height: 1.5;
   color: #333333;
@@ -182,11 +164,12 @@ button:hover {
 
 .login100-form {
   width: 100%;
+  padding: 2rem;
 }
 
 .login100-form-title {
   display: block;
-  font-family: Poppins-Bold;
+  font-family: Roboto;
   font-size: 39px;
   color: #333333;
   line-height: 1.2;
@@ -205,7 +188,7 @@ button:hover {
 }
 
 .label-input100 {
-  font-family: Poppins-Regular;
+  font-family: Roboto;
   font-size: 14px;
   color: #333333;
   line-height: 1.5;
@@ -213,7 +196,7 @@ button:hover {
 }
 
 .input100 {
-  font-family: Poppins-Medium;
+  font-family: Roboto;
   font-size: 16px;
   color: #333333;
   line-height: 1.2;
@@ -222,7 +205,8 @@ button:hover {
   width: 100%;
   height: 55px;
   background: transparent;
-  padding: 0 7px 0 43px;
+  text-align:center;
+  /* padding: 0 7px 0 43px; */
 }
 
 
@@ -283,11 +267,11 @@ button:hover {
 }
 
 .input100:focus + .focus-input100::after {
-  color: #a64bf4;
+  color: #006064;
 }
 
 .has-val.input100 + .focus-input100::after {
-  color: #a64bf4;
+  color: #006064;
 }
 
 
@@ -325,22 +309,22 @@ button:hover {
   width: 300%;
   height: 100%;
   background: rgb(96,207,220);
-  background: linear-gradient(90deg, #296F91 0%,  #0d5558 92%);
+  background: linear-gradient(155deg, #0d5558 0%, #288a8d 92%);
   top: 0;
   left: -100%;
   -webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
   -moz-transition: all 0.4s;
   transition: all 0.4s;
+  box-shadow: #333333 !important;
 }
 
 .login100-form-btn {
-  font-family: Poppins-Medium;
-  font-size: 16px;
+  font-family: 'Myfont' !important;
+  font-size: 1.8rem;;
   color: #fff;
   line-height: 1.2;
   text-transform: uppercase;
-
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -351,6 +335,7 @@ button:hover {
   padding: 0 20px;
   width: 100%;
   height: 50px;
+  text-shadow: 3px 2px 3px black;
 }
 
 .wrap-login100-form-btn:hover .login100-form-bgbtn {
@@ -359,7 +344,9 @@ button:hover {
 
 .login100-form-btn:disabled {
   background-color:#ececec;
-  color:#006064;
+  color:black;
+  text-shadow: 2px 4px 4px #939c9dd4 !important;
+
 
 }
 
@@ -2923,3 +2910,17 @@ flex-direction: column;
 -ms-align-items: center;
 align-items: center;
 }
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  text-align: center;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  text-align: center;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  text-align: center;
+}
+:-moz-placeholder { /* Firefox 18- */
+  text-align: center;
+}
+
