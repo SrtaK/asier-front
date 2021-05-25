@@ -27,7 +27,8 @@
   <!-- espacio especial para botones -->
     <mat-card-actions>
 
-        <div class="buttons">
+        <div  *ngIf="admin"
+              class="buttons">
           <button mat-raised-button color="warn" [routerLink]="['/pictures/configurar/editar',picture._id]" >Editar</button>
           <button mat-raised-button color="warn">Borrar</button>
         </div>

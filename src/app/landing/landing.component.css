@@ -15,5 +15,21 @@ h1{
 
 .landing-container{
   height: 100%;
-  background-image: url('../../assets/img/landing.jpeg');
+  width: 100%;
+  background-image: url('../../assets/img/listado.jpg');
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+
+}
+
+.titulo
+{
+  background-image: url('../../assets/img/clouds.png');
+  align-self: center;
+}
+
+h1{
+  text-shadow: 8px 5px 3px #000000;
+
 }

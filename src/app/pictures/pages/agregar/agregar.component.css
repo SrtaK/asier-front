@@ -80,7 +80,7 @@ margin-bottom: 1rem;;
 .inputfile-2.has-focus + label,
 .inputfile-2 + label:hover {
   color: #006064;
-} */
+} 
 
 
 .mat-icon {
@@ -90,3 +90,4 @@ margin-bottom: 1rem;;
 .justificar{
   justify-content: space-around;
 }
+

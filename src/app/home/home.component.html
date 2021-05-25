@@ -90,22 +90,19 @@
         <mat-icon>mood</mat-icon>
         <span >Mis datos</span>
       </button>
+      <div *ngIf="admin">
+        <button mat-menu-item
+                routerLink="/users/listado">
+        <mat-icon>group</mat-icon>
+          <span>Listado usuarios</span>
+        </button>
 
-      <button mat-menu-item
-              routerLink="/users/listado">
-      <mat-icon>group</mat-icon>
-        <span>Listado usuarios</span>
-      </button>
-
-      <button  mat-menu-item
-              [routerLink]="['/pictures/configurar/agregar']">
-        <mat-icon>palette</mat-icon>
-        <span>Añadir</span>
-      </button>
-      <button mat-menu-item>
-        <mat-icon>shopping_basket</mat-icon>
-        <span>Mic sompras</span>
-      </button>
+        <button  mat-menu-item
+                [routerLink]="['/pictures/configurar/agregar']">
+          <mat-icon>palette</mat-icon>
+          <span>Añadir</span>
+        </button>
+      </div>
       <button mat-menu-item
               (click)="logout()">
         <mat-icon>directions_run</mat-icon>

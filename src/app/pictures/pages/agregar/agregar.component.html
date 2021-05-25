@@ -6,19 +6,14 @@
   <div fxLayout="column">
     <div class="titulo">
       <h1>
-        {{(picture._id)? 'Editar Obra' : 'Nueva obra'}}
-          <small>{{picture.nombre}}</small>
+        NUEVA OBRA
         </h1>
     </div>
     <mat-divider></mat-divider>
 
     <form [formGroup]="miFormulario" (ngSubmit)="save()">
-      <!-- Progress Bar -->
-
-
 
     <!-- File Input -->
-
 
       <!-- nombre -->
       <div class="form-group input-group-lg wrap-input100 m-b-23">
@@ -92,9 +87,19 @@
     </div>
 
       <!-- Submit -->
-      <div class="form-group">
+      <!-- <div class="form-group">
         <button mat-raised-button color="primary" type="submit" class="btn btn-danger btn-block btn-lg">Añadir obra</button>
-      </div>
+      </div> -->
+
+      <div class="container-login100-form-btn">
+        <div class="wrap-login100-form-btn">
+            <div class="login100-form-bgbtn"></div>
+            <button type="submit"
+                    class="login100-form-btn">
+                Añadir
+            </button>
+        </div>
+    </div>
 
 
     </form>

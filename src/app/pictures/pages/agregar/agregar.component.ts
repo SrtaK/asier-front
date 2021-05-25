@@ -148,19 +148,6 @@ console.log("eventoe" + event.target!.files[0])
       })
     }
 
-      // .subscribe(ok =>{
-      //   //si es correcto navega
-      //   if(ok === true){
-      //     this.mostrarSnackBAr('Obra guardada');
-      //     this.router.navigateByUrl(`/pictures/listado/${this.normalizarSerie(this.picture)}`)
-      //   }else{
-      //     //sino es correcto manejo el error
-      //     this.mostrarSnackBAr('No se ha guardado, inténta más tarde');
-      //   }
-      // })
-
-
-
   actualizar(){
     if( this.picture.nombre.trim().length == 0){
       return

@@ -3,11 +3,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { Location } from '@angular/common'
 
-
-import { Picture } from '../../interfaces/pictures.interface';
-import { PicturesService } from '../../services/pictures.service';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+
+import { AuthService } from '../../../auth/services/auth.service';
+import { Picture } from '../../interfaces/pictures.interface';
+import { PicturesService } from '../../services/pictures.service';
+import { User } from '../../../auth/interfaces/users.interfaces';
+
 import { ConfirmarComponent } from '../../components/confirmar/confirmar.component';
 
 
@@ -20,9 +23,13 @@ import { ConfirmarComponent } from '../../components/confirmar/confirmar.compone
 
 export class PictureComponent implements OnInit {
 
+  admin: boolean =false;
   picture!: Picture;
+  public user!:User;
 
-  constructor(  private activatedRoute: ActivatedRoute,
+
+  constructor(  private authService: AuthService,
+                private activatedRoute: ActivatedRoute,
                 public dialog: MatDialog,
                 private snackBar: MatSnackBar,
                 private picturesService: PicturesService,
@@ -35,7 +42,24 @@ export class PictureComponent implements OnInit {
     .pipe(
       switchMap(({id}) => this.picturesService.getPicturePorId(id))
     )
-    .subscribe(resp => this.picture = resp.picture)
+    .subscribe(resp => this.picture = resp.picture);
+
+
+    if (localStorage.getItem('uid') !== null) {
+      var uid = localStorage.getItem('uid');
+      if(uid == '60a7db39122a552704498795'){
+        this.admin = true;
+      }
+      this.authService.getUserPorId(uid!)
+      .subscribe(
+        ok => {
+          this.user = ok.user
+          console.log(this.user)
+        })
+    } else {
+      console.log(`No está registrado`);
+    }
+
   }
 
   back(): void {

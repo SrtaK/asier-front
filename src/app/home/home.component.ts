@@ -13,6 +13,8 @@ import { User } from '../auth/interfaces/users.interfaces';
 
 export class HomeComponent implements OnInit {
 
+  admin: boolean =false;
+
   public user!:User;
 
 
@@ -25,6 +27,9 @@ export class HomeComponent implements OnInit {
 
     if (localStorage.getItem('uid') !== null) {
       var uid = localStorage.getItem('uid');
+      if(uid == '60a7db39122a552704498795'){
+        this.admin = true;
+      }
       this.authService.getUserPorId(uid!)
       .subscribe(
         ok => {

@@ -17,6 +17,7 @@ import { PictureDetailComponent } from './pages/picture-detail/picture-detail.co
 import { MainPicturesComponent } from './pages/main-pictures/main-pictures.component';
 import { PictureTarjetaComponent } from './components/picture-tarjeta/picture-tarjeta.component';
 import { ConfirmarComponent } from './components/confirmar/confirmar.component';
+import { EditarComponent } from './pages/editar/editar.component';
 
 
 
@@ -30,7 +31,8 @@ import { ConfirmarComponent } from './components/confirmar/confirmar.component';
     PictureDetailComponent,
     PictureTarjetaComponent,
     PictureComponent,
-    UrlPipe
+    UrlPipe,
+    EditarComponent
 
 
   ],

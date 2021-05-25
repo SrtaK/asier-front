@@ -1,10 +1,11 @@
 import { ActivatedRoute, Router } from '@angular/router';
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { ConfirmarComponent } from '../../components/confirmar/confirmar.component';
 import { Picture } from '../../interfaces/pictures.interface';
+import { AuthService } from '../../../auth/services/auth.service';
 import { PicturesService } from '../../services/pictures.service';
 
 
@@ -15,14 +16,28 @@ import { PicturesService } from '../../services/pictures.service';
   styleUrls: ['./picture-tarjeta.component.css']
 })
 
-export class PictureTarjetaComponent {
+export class PictureTarjetaComponent implements OnInit{
 
-constructor(  private pictureService: PicturesService,
-              public dialog: MatDialog,
-              private router:Router,
-              private snackBar: MatSnackBar,
-              ){}
+  admin: boolean =false;
 
+  constructor(  public dialog: MatDialog,
+                private pictureService: PicturesService,
+                private router:Router,
+                private snackBar: MatSnackBar,
+                ){}
+
+  ngOnInit(): void {
+
+    if (localStorage.getItem('uid') !== null) {
+      var uid = localStorage.getItem('uid');
+      if(uid == '60a7db39122a552704498795'){
+        this.admin = true;
+      }
+    } else {
+      console.log(`No está registrado`);
+    }
+
+  }
   @Input() picture!: Picture;
 
   borrarPicture(){

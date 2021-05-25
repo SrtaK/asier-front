@@ -79,7 +79,8 @@ h1,h2,h3,h4,h5,h6 {
 
 h1{
   font-family: 'Myfont-Regular' !important;
-  font-size: 200px;
+  font-size: 100px !important;
+  color: #006064;
 
 }
 

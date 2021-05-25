@@ -11,6 +11,7 @@ import { LandingComponent } from '../landing/landing.component';
 
 import { ValidarTokenGuard } from '../guards/validar-token.guard';
 import { ValidarAdminnGuard } from '../guards/validar-admin.guard';
+import { EditarComponent } from './pages/editar/editar.component';
 
 const routes: Routes = [
   {
@@ -41,7 +42,7 @@ const routes: Routes = [
       },
       {
         path: 'editar/:id',
-        component: AgregarComponent
+        component: EditarComponent
       }
     ]
   },

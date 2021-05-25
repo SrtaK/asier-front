@@ -9,10 +9,15 @@
 
 mat-list{
   margin-bottom: 5rem;
-  
+
 }
 
 .buttons
 {
   margin-top: 1rem;
+}
+
+h1{
+  text-shadow: 8px 5px 3px #000000;
+  letter-spacing: -9px;
 }
