@@ -33,15 +33,6 @@ export class PicturesService {
     return this.http.get<OnePictureResp>(`${this.baseUrl}/picture/${id}`)
   }
 
-  // agregarPicture(picture:Picture){
-  //   return this.http.post<PictureResp>(`${this.baseUrl}/picture/save`, picture)
-  //   .pipe(
-  //     map( resp => resp.ok ),
-  //     catchError( err => of(err.error.msg) )
-  //   );
-  // }
-
-
   agregarPicture(
     nombre: string,
     imagen: File,
@@ -70,8 +61,30 @@ export class PicturesService {
       })
   }
 
-  actualizarPicture(picture:Picture){
-    return this.http.put<PictureResp>(`${this.baseUrl}/picture/update/${picture._id}`, picture)
+  actualizarPicture(
+    nombre: string,
+    imagen: File,
+    annio: string,
+    serie: string,
+    soporte: string,
+    medidas: string,
+    tecnica: string,
+    disponible: boolean,
+    precio: string, 
+    id:string
+    ){
+      var formData: any = new FormData();
+      formData.append("nombre", nombre);
+      formData.append("annio", annio);
+      formData.append("imagen", imagen);
+      formData.append("serie", serie);
+      formData.append("medidas", medidas);
+      formData.append("tecnica", tecnica);
+      formData.append("soporte", soporte);
+      formData.append("disponible", disponible);
+      formData.append("precio", precio);
+
+    return this.http.put<PictureResp>(`${this.baseUrl}/picture/update/${id}`, formData)
     .pipe(
       map( resp => resp.ok ),
       catchError( err => of(err.error.msg) )

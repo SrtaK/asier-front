@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { switchMap } from 'rxjs/operators';
 
 import { Picture, Serie } from '../../interfaces/pictures.interface';
 import { PicturesService } from '../../services/pictures.service';
@@ -79,17 +78,6 @@ export class AgregarComponent implements OnInit {
 
   ngOnInit(): void {
 
-    // cuando accedo a añadir/no editar me da error
-    // core.js:6142 ERROR HttpErrorResponse {headers: HttpHeaders, status: 500, statusText: "Internal Server Error", url: "http://localhost:4000/api/picture/undefined", ok: false, …}
-    if(this.router.url.includes('editar')){
-      this.activatedRoute.params
-      .pipe(
-        switchMap(({id})=> this.pictureService.getPicturePorId(id))
-      )
-      .subscribe( res => this.picture = res.picture )
-    }
-
-
   }
 
   esValido(campo:string){
@@ -100,7 +88,7 @@ export class AgregarComponent implements OnInit {
 
   // Image Preview
   uploadFile(event:any) {
-console.log("eventoe" + event.target!.files[0])
+  console.log("eventoe" + event.target!.files[0])
     const file = event.target!.files[0];
     this.miFormulario.patchValue({
       imagen: file
