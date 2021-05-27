@@ -1,6 +1,8 @@
 mat-card{
   display: flex;
   flex-direction: column;
+  min-height: 30rem;
+  height: 100%;
 }
 
 .info{
@@ -15,8 +17,6 @@ mat-card-actions{
   display: flex ;
   flex-direction: column;
   justify-content: flex-end;
-
-
 
 }
 
@@ -33,4 +33,8 @@ button{
 
 button{
   width: 6rem;
+}
+
+.titulo-obra{
+  font-size: 1rem !important;
 }

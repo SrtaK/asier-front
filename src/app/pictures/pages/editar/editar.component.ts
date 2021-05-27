@@ -163,13 +163,6 @@ export class EditarComponent implements OnInit {
   }
 
 
-  normalizarSerie(picture: Picture){
-
-  //elimino espacios en blanco y caracteres
-  var rutaSerie = picture.serie.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/ /g, "-");
-  return rutaSerie;
-  }
-
 }
 
 

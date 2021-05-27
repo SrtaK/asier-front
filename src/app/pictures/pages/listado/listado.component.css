@@ -9,3 +9,37 @@ h1{
 mat-card-image{
   width: 32%;
 }
+
+.titulo{
+  padding-top:8rem;
+}
+
+.listado-pictures{
+  display: flex;
+  flex-flow: row wrap;
+  margin-top: 3rem;
+  justify-content: center;
+  align-items: stretch;
+  
+}
+
+.tarjeta{
+  width:40%;
+  margin:1rem;
+  min-height: 22rem;
+  display: flex;
+  
+
+}
+
+.espaciador{
+  margin:3rem;
+}
+
+app-picture-tarjeta{
+  height: 100%;
+}
+
+.container-login100{
+  box-shadow: 0 4px 2px -2px gray !important;
+}
