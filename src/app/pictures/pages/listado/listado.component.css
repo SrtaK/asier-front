@@ -43,3 +43,18 @@ app-picture-tarjeta{
 .container-login100{
   box-shadow: 0 4px 2px -2px gray !important;
 }
+
+
+/*media queries*/
+
+@media (max-width: 992px){
+  .tarjeta{
+  width:100%;
+  margin:1rem;
+  min-height: 22rem;
+  display: flex;
+}
+h1{
+  font-size: 4rem !important;
+}
+}
