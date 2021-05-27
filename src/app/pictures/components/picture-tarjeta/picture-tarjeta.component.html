@@ -1,20 +1,12 @@
 <mat-card>
   
     <img [routerLink]="['/pictures',picture._id]" mat-card-image src="../../../../assets/img/prueba.jpg">
-  
+    <img  mat-card-image src="./images/{{picture.imagen}}">
+
    
   <div class="info">
     <mat-card-content>
       <h1>{{picture.nombre}}</h1>
-      <h3>{{picture.annio}}</h3>
-      <p>
-        <strong>Técnica:</strong> {{picture.tecnica}}
-        <br>
-        <strong>Sobre:</strong> {{picture.soporte}}
-        <br>
-        <strong>Medidas:</strong> {{picture.medidas}}
-      </p>
-
     </mat-card-content>
 
   <!-- espacio especial para botones -->

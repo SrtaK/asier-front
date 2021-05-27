@@ -14,16 +14,17 @@ mat-card{
 }
 
 mat-card-actions{
+  grid-area: card-actions;
   display: flex ;
   flex-direction: column;
   justify-content: flex-end;
-
 }
 
-button{
-  width: 6rem;
+mat-card-content{
+  grid-area: card-content;
 }
 
+/*botones*/
 .buttons{
   display: flex;
   flex-direction: row;
@@ -33,8 +34,53 @@ button{
 
 button{
   width: 6rem;
+  /* font-family: Roboto !important; */
+  font-family: 'Myfont' !important;
 }
 
-.titulo-obra{
-  font-size: 1rem !important;
+.login100-form-btn{
+  font-size: 1.3rem;
+}
+
+span{
+  font-family: 'MyFont' !important;
+}
+
+.wrap-login100-form-btn{
+  width: 100%;
+
+}
+
+.info{
+  display: grid;
+  grid-template-areas: "titulo titulo titulo" 
+                        "card-content card-content card-actions";
+}
+
+/* Tablet - movil */
+@media (min-width: 320px) and (max-width: 768px){
+  .buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 1rem;
+  }
+
+  button{
+    width: 6rem;
+  }
+
+  mat-card-actions{
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end;
+    padding: 0;
+    margin-bottom: 0;
+  }
+}
+
+@media(max-width:679px){
+  h1{
+    font-size: 3rem !important;
+}
 }
