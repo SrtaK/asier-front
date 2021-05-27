@@ -39,8 +39,18 @@
         <button mat-raised-button color="warn" [routerLink]="['/pictures/configurar/editar',picture._id]" >Editar</button>
         <button mat-raised-button color="warn" (click)="borrarPicture()">Borrar</button>
       </div>
+        
 
+      <!-- <div *ngIf="user"></div> tengo que hacer global la figura del user-->
       <div class="buttons">
+        <div class="container-login100-form-btn">
+        <div class="wrap-login100-form-btn">
+            <div class="login100-form-bgbtn"></div>
+            <button class="login100-form-btn"[routerLink]="['/contacto']">
+              + info 
+            </button>
+        </div>
+      </div>
         <div class="container-login100-form-btn">
           <div class="wrap-login100-form-btn">
               <div class="login100-form-bgbtn"></div>
@@ -50,7 +60,6 @@
           </div>
       </div>
 
-        <!-- <div *ngIf="user"></div> tengo que hacer global la figura del user-->
       </div>
 
     </mat-card-actions>

@@ -31,5 +31,7 @@ h1{
 
 h1{
   text-shadow: 8px 5px 3px #000000;
-
+  letter-spacing: 0 !important;
+  font-size: 10vw !important;
 }
+
