@@ -19,6 +19,7 @@ import { PicturesService } from '../../services/pictures.service';
 export class PictureTarjetaComponent implements OnInit{
 
   admin: boolean =false;
+  logueado: boolean =false;
 
   constructor(  public dialog: MatDialog,
                 private pictureService: PicturesService,
@@ -33,6 +34,7 @@ export class PictureTarjetaComponent implements OnInit{
       if(uid == '60a7db39122a552704498795'){
         this.admin = true;
       }
+      this.logueado = true;
     } else {
       console.log(`No está registrado`);
     }

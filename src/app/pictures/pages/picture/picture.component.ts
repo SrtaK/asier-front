@@ -9,7 +9,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from '../../../auth/services/auth.service';
 import { Picture } from '../../interfaces/pictures.interface';
 import { PicturesService } from '../../services/pictures.service';
-import { User } from '../../../auth/interfaces/users.interfaces';
 
 import { ConfirmarComponent } from '../../components/confirmar/confirmar.component';
 
@@ -25,7 +24,7 @@ export class PictureComponent implements OnInit {
 
   admin: boolean =false;
   picture!: Picture;
-  public user!:User;
+  logueado = false;
 
 
   constructor(  private authService: AuthService,
@@ -50,12 +49,7 @@ export class PictureComponent implements OnInit {
       if(uid == '60a7db39122a552704498795'){
         this.admin = true;
       }
-      this.authService.getUserPorId(uid!)
-      .subscribe(
-        ok => {
-          this.user = ok.user
-          console.log(this.user)
-        })
+      this.logueado = true;
     } else {
       console.log(`No está registrado`);
     }
