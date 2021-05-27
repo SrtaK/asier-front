@@ -6,6 +6,7 @@ import { User } from '../../interfaces/users.interfaces';
 import { AuthService } from '../../services/auth.service';
 import { ConfirmarComponent } from 'src/app/pictures/components/confirmar/confirmar.component';
 import { MatDialog } from '@angular/material/dialog';
+import { ContactoService } from '../../../contacto/contacto.service';
 
 
 
@@ -18,11 +19,17 @@ export class UserDetailComponent implements OnInit {
 
   user!: User;
 
+  datosEmail = {
+    "email" : 'usuario@usuario.com',
+    "subject": "Usuario borrado",
+    "texto" : "Un usuario se ha dado de baja"
+  }
+
   constructor(private activatedRoute: ActivatedRoute,
               private authService: AuthService,
               public dialog: MatDialog,
               private router: Router,
-              // private location: Location
+              private contactoService:ContactoService,
               private snackBar: MatSnackBar,
               ) { }
 
@@ -51,9 +58,11 @@ export class UserDetailComponent implements OnInit {
         if(result){
           this.authService.borrarUser(this.user._id!)
             .subscribe( resp => {
-              //si se borra llévame al listado
               this.mostrarSnackBAr('Usuario eliminado');
-              this.router.navigateByUrl(`/users/registro`)
+              this.router.navigateByUrl(`/users/registro`);
+              this.contactoService.sendEmail(this.datosEmail)
+              .subscribe( resp => {
+                this.mostrarSnackBAr('Mensaje enviado');})
             })
         }
       }

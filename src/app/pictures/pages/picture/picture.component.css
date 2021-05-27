@@ -79,8 +79,9 @@ span{
   }
 }
 
-@media(max-width:679px){
+@media(max-width:992px){
   h1{
-    font-size: 3rem !important;
+    font-size: 5rem !important;
 }
 }
+

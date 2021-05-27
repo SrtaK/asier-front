@@ -6,6 +6,7 @@ import { ConfirmarComponent } from 'src/app/pictures/components/confirmar/confir
 
 import { User } from '../../interfaces/users.interfaces';
 import { AuthService } from '../../services/auth.service';
+import { ContactoService } from '../../../contacto/contacto.service';
 
 @Component({
   selector: 'app-listado',
@@ -17,10 +18,16 @@ export class ListadoComponent implements OnInit {
 
   users: User[]= []
 
+  datosEmail = {
+    "email" : 'usuario@usuario.com',
+    "subject": "Usuario borrado",
+    "texto" : "Un usuario se ha dado de baja"
+  }
+
   constructor(private authService: AuthService,
               public dialog: MatDialog,
               private router: Router,
-
+              private contactoService:ContactoService,
               private snackBar: MatSnackBar,
 
               ) { }
@@ -43,14 +50,22 @@ export class ListadoComponent implements OnInit {
         if(result){
           this.authService.borrarUser(id)
             .subscribe( resp => {
-              //si se borra llévame al listado
               this.mostrarSnackBAr('Usuario eliminado');
               this.router.navigateByUrl(`/users/registro`)
+              
             })
-        }
+          }
       }
     )
+
+    this.contactoService.sendEmail(this.datosEmail)
+          .subscribe( resp => {
+            this.mostrarSnackBAr('Mensaje enviado');})
+
+
+
   }
+
 
   mostrarSnackBAr(mensaje: string){
     this.snackBar.open(mensaje, 'ok!', {

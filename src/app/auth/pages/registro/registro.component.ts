@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { switchMap } from 'rxjs/operators';
+import { ContactoService } from '../../../contacto/contacto.service';
 
 import Swal from 'sweetalert2';
 
@@ -26,11 +27,18 @@ export class RegistroComponent implements OnInit{
     password:['', [Validators.required, Validators.minLength(6)]]
   });
 
+  datosEmail = {
+    "email" : 'usuario@usuario.com',
+    "subject": "Nuevo registro",
+    "texto" : "Un usuario se ha registrado"
+  }
+
   
 
   constructor(private fb: FormBuilder,
               private router: Router,
               private activatedRoute: ActivatedRoute,
+              private contactoService:ContactoService,
               private authService: AuthService,
               private snackBar: MatSnackBar) { }
 
@@ -69,6 +77,11 @@ ngOnInit(): void {
           //sino es correcto manejo el error
           Swal.fire('Ups, algo se ha roto, vuelve más tarde', ok, 'error');
         }
+      })
+
+      this.contactoService.sendEmail(this.datosEmail)
+      .subscribe( resp => {
+        this.mostrarSnackBAr('Mensaje enviado');
       })
 
   }
