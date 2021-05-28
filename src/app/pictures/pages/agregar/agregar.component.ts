@@ -22,7 +22,7 @@ export class AgregarComponent implements OnInit {
       desc: 'El cuerpo orográfico'
     },
     {
-      id: 'WW1',
+      id: 'ww1',
       desc: 'WW1'
     },
     {

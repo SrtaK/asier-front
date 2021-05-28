@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
 
 import { PicturesService, } from '../../services/pictures.service';
 import { Picture, PictureResp } from '../../interfaces/pictures.interface';
+import { serializeNodes } from '@angular/compiler/src/i18n/digest';
 
 @Component({
   selector: 'app-listado',
@@ -13,19 +16,19 @@ export class ListadoComponent implements OnInit {
   pictures: Picture[]= []
 
   //Inyecto el PictureService para poder utilizar sus métodos
-  constructor( private picturesService: PicturesService) { }
+  constructor(  private picturesService: PicturesService,
+                private activatedRoute: ActivatedRoute
+              ) { }
 
   ngOnInit(): void {
 
-    //Llamo al método, para que funcione tengo que suscribirme porque devuelve un observable
-    this.picturesService.getPictures()
-      .subscribe( resp => this.pictures = resp.pictures) //los pictures que traigo en la respuesta ahora son mis pictures
-
-
-
-
-
+    this.activatedRoute.params
+    .pipe(
+      switchMap(({serie}) => this.picturesService.getPicturesPorSerie(serie))
+    )
+    .subscribe(resp => this.pictures = resp.pictures);
   }
+
 }
 
 

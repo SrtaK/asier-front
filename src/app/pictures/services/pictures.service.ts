@@ -33,6 +33,10 @@ export class PicturesService {
     return this.http.get<OnePictureResp>(`${this.baseUrl}/picture/${id}`)
   }
 
+  getPicturesPorSerie(serie:string){
+    return this.http.get<PictureResp>(`${this.baseUrl}/pictures/get-by-serie/${serie}`)
+  }
+
   agregarPicture(
     nombre: string,
     imagen: File,

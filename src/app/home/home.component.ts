@@ -3,7 +3,9 @@ import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { AuthService } from '../auth/services/auth.service';
+import { PicturesService } from '../pictures/services/pictures.service';
 import { User } from '../auth/interfaces/users.interfaces';
+import { Picture } from '../pictures/interfaces/pictures.interface';
 
 @Component({
   selector: 'app-home',
@@ -16,10 +18,11 @@ export class HomeComponent implements OnInit {
   admin: boolean =false;
 
   public user!:User;
-
+  pictures: Picture[]= []
 
   constructor( private router: Router,
                 private authService: AuthService,
+                private picturesService: PicturesService,
                 private snackBar: MatSnackBar,
                 ) { }
 
@@ -56,5 +59,17 @@ export class HomeComponent implements OnInit {
     this.snackBar.open(mensaje, 'ok', {
       duration: 2500
     })
+  }
+
+//   listadoPictures(serie:string){
+//     this.picturesService.getPicturesPorSerie(serie)
+//     .subscribe( resp => {
+// console.log
+//     })
+//   }
+
+  listadoPictures(serie:string){
+    this.picturesService.getPicturesPorSerie(serie)
+    .subscribe( resp => this.pictures = resp.pictures) 
   }
 }
