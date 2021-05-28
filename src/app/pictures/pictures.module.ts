@@ -7,7 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { PicturesRoutingModule } from './pictures-routing.module';
 
-import { UrlPipe } from './pipes/url.pipe';
+import { TituloPipe } from '../pipes/titulo.pipe';
 
 import { AgregarComponent } from './pages/agregar/agregar.component';
 import { PictureComponent } from './pages/picture/picture.component';
@@ -27,7 +27,7 @@ import { EditarComponent } from './pages/editar/editar.component';
     MainPicturesComponent,
     PictureTarjetaComponent,
     PictureComponent,
-    UrlPipe,
+    TituloPipe,
     EditarComponent
 
 

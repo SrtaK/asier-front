@@ -4,6 +4,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ConfirmarComponent } from 'src/app/pictures/components/confirmar/confirmar.component';
 
+import { TituloPipe } from '../../../pipes/titulo.pipe';
+
 import { User } from '../../interfaces/users.interfaces';
 import { AuthService } from '../../services/auth.service';
 import { ContactoService } from '../../../contacto/contacto.service';
@@ -29,6 +31,7 @@ export class ListadoComponent implements OnInit {
               private router: Router,
               private contactoService:ContactoService,
               private snackBar: MatSnackBar,
+              private tituloPipe: TituloPipe
 
               ) { }
 

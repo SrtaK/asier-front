@@ -1,12 +1,15 @@
   <div class="limiter">
     <div class="container-login100" style="background-image: url('../../../assets/img/listado.jpg');">
-      <h1 class="titulo">Nosotros los pueblos</h1>
+      <h1 *ngIf="pictures[0]"
+          class="titulo">{{pictures[0].serie | titulo }}</h1>
+          
     </div>
   </div>
 
 <div class="listado-pictures">
   <div class="tarjeta" *ngFor="let picture of pictures">
     <app-picture-tarjeta [picture] = "picture"></app-picture-tarjeta>
+    
     
   </div>
 </div>

@@ -29,6 +29,7 @@ import { SobreMiComponent } from './sobre-mi/sobre-mi.component';
     LandingComponent,
     ContactoComponent,
     SobreMiComponent,
+
   ],
   imports: [
     AppRoutingModule,
