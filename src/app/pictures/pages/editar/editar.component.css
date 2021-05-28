@@ -1,0 +1,46 @@
+.user-container
+{
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  height: 100%;
+}
+
+mat-list{
+  margin-bottom: 2rem;
+}
+
+
+.titulo{
+  text-align: center;
+}
+
+form{
+ margin-top: 2rem;
+}
+
+.image{
+  margin: 2rem 0 ;
+}
+
+.mat-icon {
+  vertical-align: middle;
+}
+
+.justificar{
+  justify-content: space-around;
+}
+
+.text-danger{
+  color: rgba(199, 11, 11, 0.932);
+  position:absolute;
+  
+}
+
+.wrap-input100{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+

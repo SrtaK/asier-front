@@ -9,6 +9,7 @@ import Swal from 'sweetalert2';
 import { User } from '../../interfaces/users.interfaces';
 
 import { AuthService } from '../../services/auth.service';
+import { ContactoService } from 'src/app/contacto/contacto.service';
 
 @Component({
   selector: 'app-editar',
@@ -19,6 +20,12 @@ import { AuthService } from '../../services/auth.service';
 export class EditarComponent implements OnInit {
   user!: User;
 
+  datosEmail = {
+    "email" : 'usuario@usuario.com',
+    "subject": "Usuario actualizado",
+    "texto" : "El usuario se ha dado de baja"
+  }
+
   formularioEditar: FormGroup = this.fb.group({
     name: ['', [Validators.required, Validators.minLength(2)]],
     email: ['', [Validators.required, Validators.email]],
@@ -26,6 +33,7 @@ export class EditarComponent implements OnInit {
   });
 
   constructor(private fb: FormBuilder,
+              private contactoService:ContactoService,
               private router: Router,
               private activatedRoute: ActivatedRoute,
               private authService: AuthService,
@@ -63,7 +71,10 @@ export class EditarComponent implements OnInit {
       console.log('Actualizando', resp);
       this.mostrarSnackBAr('Usuario actualizado');
       this.router.navigateByUrl(`/users/usuario/${this.user._id}`)
-
+      this.contactoService.sendEmail(this.datosEmail)
+              .subscribe( resp => {
+                this.mostrarSnackBAr('Mensaje enviado');})
+      
     })
   }
 

@@ -16,6 +16,10 @@ import { HttpEvent, HttpEventType } from '@angular/common/http';
 })
 export class EditarComponent implements OnInit {
 
+  color = 'primary';
+  checked = false;
+  disabled = false
+
   series = [
     {
       id: 'El cuerpo orográfico',

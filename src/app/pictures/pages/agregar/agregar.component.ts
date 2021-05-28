@@ -35,22 +35,10 @@ export class AgregarComponent implements OnInit {
     }
   ]
 
-  // picture: Picture = {
-  //   nombre: '',
-  //   annio:'',
-  //   imagen: '',
-  //   serie: Serie.ElCuerpoOrografico,
-  //   medidas:'',
-  //   tecnica:'',
-  //   soporte:'',
-  //   disponible:false,
-  //   precio: ''
-
-  // }
-
   serie!: string;
   preview!: string;
   percentDone: any = 0;
+  
   color = 'primary';
   checked = false;
   disabled = false
