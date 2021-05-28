@@ -4,6 +4,8 @@
 
 .container-login100-form-btn {
   display: block;
+  width: 40%;
+  margin: 3rem 15rem;
 }
 
 .titulo{
@@ -12,4 +14,21 @@
 h1{
   color: white;
   text-shadow: 2px 4px 4px #000000d4 !important;
+}
+
+.login100-form-btn {
+  background-color:#ececec;
+  color:black;
+  text-shadow: 2px 4px 4px #939c9dd4 !important;
+}
+
+h2{
+  font-family: 'Myfont' !important;
+  font-size: 3rem !important;
+}
+
+@media (max-width: 992px){
+h1{
+  font-size: 3.6rem !important;
+}
 }
