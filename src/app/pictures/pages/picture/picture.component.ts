@@ -11,6 +11,7 @@ import { Picture } from '../../interfaces/pictures.interface';
 import { PicturesService } from '../../services/pictures.service';
 
 import { ConfirmarComponent } from '../../components/confirmar/confirmar.component';
+import Swal from 'sweetalert2'
 
 
 
@@ -88,6 +89,14 @@ export class PictureComponent implements OnInit {
     this.snackBar.open(mensaje, 'ok!', {
       duration: 2500
     })
+  }
+
+  openModal(){
+    Swal.fire(
+      'La tienda aún no está disponible',
+      'El precio de la obra' + this.picture.nombre + ' es de ' + this.picture.precio + ' €',      
+      'info'
+    )
   }
 
 

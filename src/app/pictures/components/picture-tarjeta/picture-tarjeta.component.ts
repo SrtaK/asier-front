@@ -8,6 +8,8 @@ import { Picture } from '../../interfaces/pictures.interface';
 import { AuthService } from '../../../auth/services/auth.service';
 import { PicturesService } from '../../services/pictures.service';
 
+import Swal from 'sweetalert2'
+
 
 
 @Component({
@@ -71,5 +73,13 @@ export class PictureTarjetaComponent implements OnInit{
     this.snackBar.open(mensaje, 'ok!', {
       duration: 2500
     })
+  }
+
+  openModal(){
+    Swal.fire(
+      'La tienda aún no está disponible',
+      'El precio de la obra' + this.picture.nombre + ' es de ' + this.picture.precio + ' €',      
+      'info'
+    )
   }
 }
