@@ -36,6 +36,12 @@ export interface Picture {
   __v?:        number;
 }
 
+export interface SerieForm{
+  id: string;
+  desc: string;
+
+}
+
 export enum Serie{
   ElCuerpoOrografico = "El cuerpo orográfico",
   WW1 = "WW1",

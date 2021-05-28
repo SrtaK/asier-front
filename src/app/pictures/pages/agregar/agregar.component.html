@@ -1,14 +1,11 @@
 
-<div  fxLayout="row"
-          fxLayout.xs="column"
-          fxLayoutGap="40px">
+<div class="formulario-agregar">
 
-  <div fxLayout="column">
     <div class="titulo">
       <h1>
         Nueva Obra
         </h1>
-    </div>
+    
 
     <form [formGroup]="miFormulario" (ngSubmit)="save()">
 
@@ -32,17 +29,15 @@
       </div>
       
       <!-- serie poner deplegable -->
-      <div class="form-group input-group-lg wrap-input100 m-b-23">
-        <span *ngIf="esValido('serie')" class="form-text text-danger">Debes seleccionar una serie</span>
-        <select class="form-control input100" formControlName="serie">
-          <option [ngValue]="null">Serie a la que pertenece</option>
-          <option *ngFor="let serie of series" [ngValue]="serie.id">
-            {{ serie.desc}}
-          </option>
-        </select>
-        <span class="focus-input100"></span>
-      </div>
-
+     
+      <mat-form-field style="width: 100%;">
+        <mat-select placeholder="Selecciona la serie" formControlName="serie">
+          <mat-option *ngFor="let serie of series" 
+                      [value]="serie.id">
+            {{serie.desc}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
       <!-- medidas -->
       <div class="form-group input-group-lg wrap-input100 m-b-23">
         <span *ngIf="esValido('medidas')" class="form-text text-danger">Debes introducir las medidas</span>
@@ -80,26 +75,29 @@
     </div> -->
 
 
-    <!-- disponible-->
-    <div class="form-group input-group-lg wrap-input100 m-b-23 ">
-      <span *ngIf="esValido('disponible')" class="form-text text-danger">Debes seleccionar si está disponible</span>
-      <div class="custom-control custom-switch">
-        <input type="checkbox" class="custom-control-input" id="customSwitches">
-        <label class="custom-control-label" for="customSwitches">Toggle this switch element</label>
-      </div>
 
-      <span class="focus-input100"></span>
-    </div>
 
     <!-- precio-->
+    <span *ngIf="esValido('precio')" class="form-text text-danger">Debes añadir un precio</span>
     <div class="form-group input-group-lg wrap-input100 m-b-23 ">
-      <span *ngIf="esValido('precio')" class="form-text text-danger">Debes añadir un precio</span>
       <input  class="form-control input100"
               placeholder="¿Cuál es su precio?"
               formControlName="precio">
       <span class="focus-input100"></span>
     </div>
 
+    <!-- disponible-->
+    <section class="example-section">
+      <mat-slide-toggle
+          class="example-margin"
+          [color]="color"
+          [checked]="checked"
+          [disabled]="disabled"
+          formControlName="disponible">
+          ¿Está disponible esta obra?
+      </mat-slide-toggle>
+    </section>
+    
     <!-- File Input -->
     <div>
       <div class="form-group input-group-lg image">

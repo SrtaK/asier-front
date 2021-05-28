@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
-import { Picture, Serie } from '../../interfaces/pictures.interface';
+import { Picture, SerieForm } from '../../interfaces/pictures.interface';
 import { PicturesService } from '../../services/pictures.service';
 import { HttpEvent, HttpEventType } from '@angular/common/http';
 
@@ -16,9 +16,9 @@ import { HttpEvent, HttpEventType } from '@angular/common/http';
 
 export class AgregarComponent implements OnInit {
 
-  series = [
+  series : SerieForm[] = [
     {
-      id: 'El cuerpo orográfico',
+      id: 'el-cuerpo-orografico',
       desc: 'El cuerpo orográfico'
     },
     {
@@ -26,37 +26,40 @@ export class AgregarComponent implements OnInit {
       desc: 'WW1'
     },
     {
-      id: 'Nosotros los pueblos',
+      id: 'nosotros-los-pueblos',
       desc: 'Nosotros los pueblos'
     },
     {
-      id: 'Las formas del desnudo',
+      id: 'las-formas-del-desnudo',
       desc: 'Las formas del desnudo'
     }
   ]
 
-  picture: Picture = {
-    nombre: '',
-    annio:'',
-    imagen: '',
-    serie: Serie.ElCuerpoOrografico,
-    medidas:'',
-    tecnica:'',
-    soporte:'',
-    disponible:false,
-    precio: ''
+  // picture: Picture = {
+  //   nombre: '',
+  //   annio:'',
+  //   imagen: '',
+  //   serie: Serie.ElCuerpoOrografico,
+  //   medidas:'',
+  //   tecnica:'',
+  //   soporte:'',
+  //   disponible:false,
+  //   precio: ''
 
-  }
+  // }
 
   serie!: string;
   preview!: string;
   percentDone: any = 0;
+  color = 'primary';
+  checked = false;
+  disabled = false
 
   miFormulario = this.fb.group({
     nombre: ['', [Validators.required, Validators.minLength(2)]],
     annio:['', [Validators.required, Validators.minLength(2)]],
     imagen:[ null],
-    serie:[ null],
+    serie:[ '', Validators.required],
     medidas: ['', [Validators.required, Validators.minLength(2)]],
     tecnica: ['', [Validators.required, Validators.minLength(2)]],
     soporte: ['', [Validators.required, Validators.minLength(2)]],

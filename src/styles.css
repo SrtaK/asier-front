@@ -59,11 +59,17 @@ h1,h2,h3,h4,h5,h6 {
 
 h1{
   font-family: 'Myfont-Regular' !important;
-  font-size: 6vw !important;
+  font-size: 4rem !important;
   color: black;
-  letter-spacing: -0.6rem !important;
   text-shadow: 2px 4px 4px #939c9dd4 !important;
 }
+
+@media(max-width:679px){
+  h1{
+    font-size: 3rem !important;
+}
+}
+
 
 p {
     /* font-family: Poppins-Regular; */
