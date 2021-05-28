@@ -22,8 +22,8 @@ export class AgregarComponent implements OnInit {
       desc: 'El cuerpo orográfico'
     },
     {
-      id: 'ww1',
-      desc: 'WW1'
+      id: 'WWI',
+      desc: 'WWI'
     },
     {
       id: 'nosotros-los-pueblos',

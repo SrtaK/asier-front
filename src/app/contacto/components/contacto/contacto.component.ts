@@ -27,6 +27,12 @@ export class ContactoComponent implements OnInit {
   }
 
   enviarEmail(){
+
+  if(this.formularioContacto.invalid){
+    this.formularioContacto.markAllAsTouched();
+    return
+  }
+
     const form = this.formularioContacto.value;
     console.log(form)
     this.contactoService.sendEmail(form)
@@ -40,6 +46,12 @@ export class ContactoComponent implements OnInit {
     this.snackBar.open(mensaje, 'ok!', {
       duration: 2500
     })
+  }
+
+  esValido(campo:string){
+    return this.formularioContacto.controls[campo].errors 
+        && this.formularioContacto.controls[campo].touched
+
   }
 
 }

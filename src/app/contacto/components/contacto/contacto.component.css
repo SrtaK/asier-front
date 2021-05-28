@@ -29,3 +29,25 @@ p{
 .iconos{
   align-self: center;
 }
+
+.text-danger{
+  color: rgba(199, 11, 11, 0.932);
+  position:absolute;
+  
+}
+
+.wrap-input100{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media(max-width:679px){
+  h1{
+    font-size: 3rem !important;
+}
+}
+
+h1{
+  font-size: 4rem !important;
+}

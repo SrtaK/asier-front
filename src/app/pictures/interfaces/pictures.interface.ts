@@ -44,7 +44,7 @@ export interface SerieForm{
 
 export enum Serie{
   ElCuerpoOrografico = "El cuerpo orográfico",
-  WW1 = "WW1",
+  WWI = "WWI",
   NosotrosLosPueblos = "Nosotros los pueblos",
   LasFormasDelDesnudo = "Las formas del desnudo"
 

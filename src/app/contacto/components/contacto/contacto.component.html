@@ -11,6 +11,8 @@
     </span>
 
     <div class="wrap-input100 m-b-23">
+      <span *ngIf="esValido('email')" 
+    class="form-text text-danger">Debe tener el formato example@mail.com</span>          
         <input class="input100"
               type="email"
               formControlName="email"
@@ -19,6 +21,7 @@
     </div>
 
     <div class="wrap-input100 m-b-23">
+      <span *ngIf="esValido('subject')" class="form-text text-danger">Debe tener al menos 6 caracteres</span>
       <input class="input100"
             type="text"
             formControlName="subject"
@@ -27,6 +30,7 @@
     </div>
 
     <div class="wrap-input100">
+      <span *ngIf="esValido('texto')" class="form-text text-danger">Debe tener al menos 6 caracteres</span>
         <input class="input100"
               type="text"
               formControlName="texto"
@@ -40,8 +44,7 @@
         <div class="wrap-login100-form-btn">
             <div class="login100-form-bgbtn"></div>
             <button type="submit"
-            class="login100-form-btn"
-            [disabled]="formularioContacto.invalid">
+            class="login100-form-btn">
                 Enviar
             </button>
         </div>
