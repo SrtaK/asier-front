@@ -16,6 +16,7 @@ import { NavComponent } from './shared/nav/nav.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { LandingComponent } from './landing/landing.component';
 import { ContactoComponent } from './contacto/components/contacto/contacto.component';
+import { SobreMiComponent } from './sobre-mi/sobre-mi.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { ContactoComponent } from './contacto/components/contacto/contacto.compo
     FooterComponent,
     LandingComponent,
     ContactoComponent,
+    SobreMiComponent,
   ],
   imports: [
     AppRoutingModule,

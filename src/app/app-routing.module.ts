@@ -5,6 +5,7 @@ import { ContactoComponent } from './contacto/components/contacto/contacto.compo
 import { HomeComponent } from './home/home.component';
 import { LandingComponent } from './landing/landing.component';
 import { ErrorComponent } from './shared/error/error.component';
+import { SobreMiComponent } from './sobre-mi/sobre-mi.component';
 
 
 const routes: Routes = [
@@ -27,17 +28,20 @@ const routes: Routes = [
         component: ContactoComponent
       },
       {
+        path: 'sobre-mi',
+        component: SobreMiComponent
+      },
+      {
         path: '',
         component: LandingComponent
-
       }
 
     ]
     },
     {
       path: '**',
-      redirectTo: ''
-      //component: ErrorComponent
+      //redirectTo: ''
+      component: ErrorComponent
     }
 
 
