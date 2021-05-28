@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class TituloPipe implements PipeTransform {
 
   transform(value: string): string {
-    let newVal = value.replace(/[^\w\s]/gi, '').toLocaleLowerCase();
+    let newVal = value.replace(/[^\w\s]/gi, ' ').toLocaleLowerCase();
     return this.titleCase(newVal);
   }
   titleCase(str:string) {
