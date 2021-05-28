@@ -49,7 +49,7 @@ export class HomeComponent implements OnInit {
     this.mostrarSnackBAr('¡Hasta pronto!');
     this.router.navigateByUrl('/users/login');
     this.authService.logout();
-    console.log('done!');
+    //console.log('done!');
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
 
 
@@ -60,13 +60,6 @@ export class HomeComponent implements OnInit {
       duration: 2500
     })
   }
-
-//   listadoPictures(serie:string){
-//     this.picturesService.getPicturesPorSerie(serie)
-//     .subscribe( resp => {
-// console.log
-//     })
-//   }
 
   listadoPictures(serie:string){
     this.picturesService.getPicturesPorSerie(serie)

@@ -46,8 +46,6 @@ export class PictureTarjetaComponent implements OnInit{
 
   borrarPicture(){
 
-    //con data envio la información al componente hijo
-    //... para no modificar el objeto heroe
     const dialog = this.dialog.open(ConfirmarComponent,{
       width: '250px',
       data: {...this.picture}
@@ -64,6 +62,8 @@ export class PictureTarjetaComponent implements OnInit{
               this.router.navigateByUrl(`/pictures/listado/${this.picture.serie}`)
 
             })
+            this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+
         }
       }
     )

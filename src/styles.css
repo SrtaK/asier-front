@@ -62,6 +62,8 @@ h1{
   font-size: 4rem !important;
   color: black;
   text-shadow: 2px 4px 4px #939c9dd4 !important;
+  letter-spacing: -0.3rem !important;
+  line-height: 3rem !important;
 }
 
 @media(max-width:679px){

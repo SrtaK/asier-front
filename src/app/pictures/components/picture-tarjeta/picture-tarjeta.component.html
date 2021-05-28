@@ -3,7 +3,7 @@
     <img [routerLink]="['/pictures',picture._id]" mat-card-image src="../../../../assets/img/prueba.jpg">
     <img  mat-card-image src="./images/{{picture.imagen}}">
 
-   
+  <div class="picture-file">
   <div class="info">
     <mat-card-content>
       <h1>{{picture.nombre}}</h1>
@@ -44,6 +44,6 @@
     </mat-card-actions>
 
   </div>
-
+</div> 
 </mat-card>
   <mat-divider></mat-divider>

@@ -9,7 +9,7 @@ img {
 }
 
 h1{
-    font-size: 4rem !important;
+    font-size: 3rem !important;
 }
 
 
@@ -47,6 +47,7 @@ span{
     flex-direction: column;
     justify-content: flex-end;
   }
+
 }
 
 
@@ -117,6 +118,12 @@ span{
     .info{
     margin-left: 3rem !important;
   }
+}
+
+@media(max-width: 1024){
+  .buttons{
+    margin-left:0 !important;
+}
 }
 
 @media (min-width: 1400px){
