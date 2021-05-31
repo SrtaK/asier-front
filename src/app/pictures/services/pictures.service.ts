@@ -42,9 +42,9 @@ export class PicturesService {
     imagen: File,
     annio: string,
     serie: string,
-    soporte: string,
     medidas: string,
     tecnica: string,
+    soporte: string,
     disponible: boolean,
     precio: string
     ){
@@ -70,11 +70,11 @@ export class PicturesService {
     imagen: File,
     annio: string,
     serie: string,
-    soporte: string,
     medidas: string,
     tecnica: string,
+    soporte: string,
     disponible: boolean,
-    precio: string, 
+    precio: string,
     id:string
     ){
       var formData: any = new FormData();
