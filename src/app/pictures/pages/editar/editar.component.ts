@@ -22,19 +22,19 @@ export class EditarComponent implements OnInit {
 
   series = [
     {
-      id: 'El cuerpo orográfico',
+      id: 'el-cuerpo-orografico',
       desc: 'El cuerpo orográfico'
     },
     {
-      id: 'WW1',
-      desc: 'WW1'
+      id: 'WWI',
+      desc: 'WWI'
     },
     {
-      id: 'Nosotros los pueblos',
+      id: 'nosotros-los-pueblos',
       desc: 'Nosotros los pueblos'
     },
     {
-      id: 'Las formas del desnudo',
+      id: 'las-formas-del-desnudo',
       desc: 'Las formas del desnudo'
     }
   ]
